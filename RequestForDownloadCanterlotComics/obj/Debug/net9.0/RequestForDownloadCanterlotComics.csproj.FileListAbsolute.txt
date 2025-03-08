@@ -1,0 +1,14 @@
+C:\Users\Bread\source\repos\RequestForDownloadCanterlotComics\RequestForDownloadCanterlotComics\bin\Debug\net9.0\RequestForDownloadCanterlotComics.exe
+C:\Users\Bread\source\repos\RequestForDownloadCanterlotComics\RequestForDownloadCanterlotComics\bin\Debug\net9.0\RequestForDownloadCanterlotComics.deps.json
+C:\Users\Bread\source\repos\RequestForDownloadCanterlotComics\RequestForDownloadCanterlotComics\bin\Debug\net9.0\RequestForDownloadCanterlotComics.runtimeconfig.json
+C:\Users\Bread\source\repos\RequestForDownloadCanterlotComics\RequestForDownloadCanterlotComics\bin\Debug\net9.0\RequestForDownloadCanterlotComics.dll
+C:\Users\Bread\source\repos\RequestForDownloadCanterlotComics\RequestForDownloadCanterlotComics\bin\Debug\net9.0\RequestForDownloadCanterlotComics.pdb
+C:\Users\Bread\source\repos\RequestForDownloadCanterlotComics\RequestForDownloadCanterlotComics\obj\Debug\net9.0\RequestForDownloadCanterlotComics.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Bread\source\repos\RequestForDownloadCanterlotComics\RequestForDownloadCanterlotComics\obj\Debug\net9.0\RequestForDownloadCanterlotComics.AssemblyInfoInputs.cache
+C:\Users\Bread\source\repos\RequestForDownloadCanterlotComics\RequestForDownloadCanterlotComics\obj\Debug\net9.0\RequestForDownloadCanterlotComics.AssemblyInfo.cs
+C:\Users\Bread\source\repos\RequestForDownloadCanterlotComics\RequestForDownloadCanterlotComics\obj\Debug\net9.0\RequestForDownloadCanterlotComics.csproj.CoreCompileInputs.cache
+C:\Users\Bread\source\repos\RequestForDownloadCanterlotComics\RequestForDownloadCanterlotComics\obj\Debug\net9.0\RequestForDownloadCanterlotComics.dll
+C:\Users\Bread\source\repos\RequestForDownloadCanterlotComics\RequestForDownloadCanterlotComics\obj\Debug\net9.0\refint\RequestForDownloadCanterlotComics.dll
+C:\Users\Bread\source\repos\RequestForDownloadCanterlotComics\RequestForDownloadCanterlotComics\obj\Debug\net9.0\RequestForDownloadCanterlotComics.pdb
+C:\Users\Bread\source\repos\RequestForDownloadCanterlotComics\RequestForDownloadCanterlotComics\obj\Debug\net9.0\RequestForDownloadCanterlotComics.genruntimeconfig.cache
+C:\Users\Bread\source\repos\RequestForDownloadCanterlotComics\RequestForDownloadCanterlotComics\obj\Debug\net9.0\ref\RequestForDownloadCanterlotComics.dll
