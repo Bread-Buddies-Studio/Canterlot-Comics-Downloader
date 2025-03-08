@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "xugSWtVW3NI=",
+  "dgSpecHash": "4ilu4XpqCb8=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Bread\\source\\repos\\RequestForDownloadCanterlotComics\\RequestForDownloadCanterlotComics\\RequestForDownloadCanterlotComics.csproj",
+  "projectFilePath": "C:\\Users\\Bread\\Documents\\GitHub\\Canterlot-Comics-Downloader\\RequestForDownloadCanterlotComics\\RequestForDownloadCanterlotComics.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Bread\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\Bread\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
