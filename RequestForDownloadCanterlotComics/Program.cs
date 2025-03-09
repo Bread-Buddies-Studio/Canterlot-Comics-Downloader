@@ -1,4 +1,5 @@
-﻿// Imports //
+﻿namespace MainSpace;
+// Imports //
 using System;
 using System.Net;
 using System.IO;
@@ -15,39 +16,7 @@ using System.IO.Compression;
 using System.Windows.Media.Animation;
 using System.Reflection;
 using System.Runtime.InteropServices;
-public enum KnownFolder
-{
-    Contacts,
-    Downloads,
-    Favorites,
-    Links,
-    SavedGames,
-    SavedSearches
-}
-
-public static class KnownFolders
-{
-    private static readonly Dictionary<KnownFolder, Guid> _guids = new()
-    {
-        [KnownFolder.Contacts] = new("56784854-C6CB-462B-8169-88E350ACB882"),
-        [KnownFolder.Downloads] = new("374DE290-123F-4565-9164-39C4925E467B"),
-        [KnownFolder.Favorites] = new("1777F761-68AD-4D8A-87BD-30B759FA33DD"),
-        [KnownFolder.Links] = new("BFB9D5E0-C6A9-404C-B2B2-AE6DB6AF4968"),
-        [KnownFolder.SavedGames] = new("4C5C32FF-BB9D-43B0-B5B4-2D72E54EAAA4"),
-        [KnownFolder.SavedSearches] = new("7D1D3A04-DEBB-4115-95CF-2F29DA2920DA")
-    };
-
-    public static string GetPath(KnownFolder knownFolder)
-    {
-        return SHGetKnownFolderPath(_guids[knownFolder], 0);
-    }
-
-    [DllImport("shell32",
-        CharSet = CharSet.Unicode, ExactSpelling = true, PreserveSig = false)]
-    private static extern string SHGetKnownFolderPath(
-        [MarshalAs(UnmanagedType.LPStruct)] Guid rfid, uint dwFlags,
-        nint hToken = 0);
-}
+using System.Windows.Controls;
 
 public static class ZipFileCreator
 {
@@ -58,15 +27,21 @@ public static class ZipFileCreator
     /// <param name="files">The list of files to be added.</param>
     public static void CreateZipFile(string fileName, IEnumerable<string> files)
     {
-        // Create and open a new ZIP file
+        // Check if CBZ already exists, if it does then delete it to prevent page duplication //
+        if (System.IO.File.Exists(fileName))
+            System.IO.File.Delete(fileName);
+        // CBZ zip creation // Create and open a new ZIP file
         var zip = ZipFile.Open(fileName, ZipArchiveMode.Create);
+        // Add pages to CBZ file //
         foreach (var file in files.OrderBy(name => name))
         {
+            // Download path for the file //
+            string downloadPath = Path.GetFileName(file);
+            // Does CBZ file exist already? If yes then delete //
             // Add the entry for each file
-            zip.CreateEntryFromFile(file, Path.GetFileName(file), CompressionLevel.Optimal);
+            zip.CreateEntryFromFile(sourceFileName: file, entryName: Path.GetFileName(file), CompressionLevel.NoCompression);
         }
         // Dispose of the object when we are done
-        
         zip.Dispose();
     }
 }
@@ -190,17 +165,20 @@ internal static class Program
     }
     public static string DownloadImageFromURL(string sourceURL, int panelIndex)
     {
+        // Create folder if it doesn't exist already //
+        Directory.CreateDirectory(@$"{downloadLocation}\CanterlotComicsPanelsTemp");
+        // Begin Download //
         using (WebClient webClient = new WebClient())
         {
             byte[] data = webClient.DownloadData(new Uri(sourceURL));
 
             using (MemoryStream mem = new MemoryStream(data))
             {
-                using (var yourImage = Image.FromStream(mem))
+                using (var yourImage = System.Drawing.Image.FromStream(mem))
                 {
                     // If you want it as Jpeg
                     string fileName = string.Format("-{0,8:D8}", panelIndex);
-                    string downloadedTo = @$"{downloadLocation}\{fileName}.jpg";
+                    string downloadedTo = @$"{downloadLocation}\CanterlotComicsPanelsTemp\{fileName}.jpg";
                     yourImage.Save(downloadedTo, ImageFormat.Jpeg);
                     return downloadedTo;
                 }
@@ -252,7 +230,7 @@ internal static class Program
             comicLink = QueryForComicLink();
             UpdateComicName();
             // Arrays //
-            List<string> panelURLS = [];
+            HashSet<string> panelURLS = [];
             List<string> chapterURLS;
             // Get Main Comic Page //
             string URLInfo = await GetURLInfo(comicLink);
@@ -265,14 +243,19 @@ internal static class Program
                 panelURLS.Add(GetCoverURL(URLInfo));
             // Add Panels to Download List //
             foreach (string URL in chapterURLS)
-                panelURLS.AddRange(await GetPanelURLS(URL));
+            {
+                // Get Panels //
+                List<string> panelsFound = await GetPanelURLS(URL);
+                // Store Panels //
+                foreach (string panel in panelsFound)
+                    panelURLS.Add(panel);
+            }
             // Initialize Panel File Path Array //
             string[] panelFiles = new string[panelURLS.Count];
             // Download Images //
             for (int i = 0; i < panelURLS.Count; i++)
             {
-                string URL = panelURLS[i];
-
+                string URL = panelURLS.ElementAt(i);
                 panelFiles[i] = DownloadImageFromURL(URL, i + 1);
                 // Percentage //
                 Console.WriteLine("Installing: " + (100f / panelURLS.Count * i));
