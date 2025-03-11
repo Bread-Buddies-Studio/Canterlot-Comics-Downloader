@@ -1,10 +1,8 @@
 ﻿namespace MainSpace;
 // Imports //
 using System;
-using System.Net;
 using System.IO;
 using System.Diagnostics;
-using System.Drawing.Imaging;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.IO.Compression;
@@ -50,7 +48,7 @@ internal static class Program
     static string comicName = comicLink[(comicLink.LastIndexOf('/') + 1)..(comicLink.LastIndexOf('-'))];
     static int gatheredURLS = 0;
     // HttpClient is intended to be instantiated once per application, rather than per-use. See Remarks.
-    static readonly HttpClient client = new();
+    public static readonly HttpClient client = new();
     static List<string> LookForInfo(string responseBody, string lookingFor, string prefix = "", string suffix = "", string downloadText = "")
     {
         List<string> information = [];
@@ -123,7 +121,6 @@ internal static class Program
         }
 
         return string.Empty;
-
     }
     static async Task<List<string>> GetPanelURLS(string sourceURL)
     {
@@ -146,37 +143,15 @@ internal static class Program
 
         return comicPanels;
     }
-    public static async Task DownloadFileTaskAsync(HttpClient client, Uri uri, string FileName)
+    public static async Task<string> DownloadImageFromURL(string sourceURL, int panelIndex)
     {
-        using (var s = await client.GetStreamAsync(uri))
-        {
-            using (var fs = new FileStream(FileName, FileMode.CreateNew))
-            {
-                await s.CopyToAsync(fs);
-            }
-        }
-    }
-    public static string DownloadImageFromURL(string sourceURL, int panelIndex)
-    {
-        // Create folder if it doesn't exist already //
-        Directory.CreateDirectory(@$"{downloadLocation}\CanterlotComicsPanelsTemp");
-        // Begin Download //
-        using (WebClient webClient = new WebClient())
-        {
-            byte[] data = webClient.DownloadData(new Uri(sourceURL));
-
-            using (MemoryStream mem = new MemoryStream(data))
-            {
-                using (var yourImage = System.Drawing.Image.FromStream(mem))
-                {
-                    // If you want it as Jpeg
-                    string fileName = string.Format("-{0,8:D8}", panelIndex);
-                    string downloadedTo = @$"{downloadLocation}\CanterlotComicsPanelsTemp\{fileName}.jpg";
-                    yourImage.Save(downloadedTo, ImageFormat.Jpeg);
-                    return downloadedTo;
-                }
-            }
-        }
+        // If you want it as PNG
+        string fileName = string.Format("-{0,8:D8}", panelIndex);
+        string downloadedTo = @$"{downloadLocation}\CanterlotComicsPanelsTemp\{fileName}.png";
+        // Attempt Download //
+        bool success = await Downloader.DownloadFilesAsync(new Uri(sourceURL), downloadedTo);
+        // Return Success //
+        return success ? downloadedTo : string.Empty;
     }
     public static void UpdateComicName()
     {
@@ -233,6 +208,11 @@ internal static class Program
             // Download Chapters //
             chapterURLS = GetChapters(URLInfo);
             // Checks //
+            if (URLInfo == string.Empty)
+            {
+                Console.WriteLine("No info at such URL!\r\n");
+                continue;
+            }
             if (coverURL != string.Empty)
                 panelURLS.Add(GetCoverURL(URLInfo));
             // Add Panels to Download List //
@@ -250,7 +230,10 @@ internal static class Program
             for (int i = 0; i < panelURLS.Count; i++)
             {
                 string URL = panelURLS.ElementAt(i);
-                panelFiles[i] = DownloadImageFromURL(URL, i + 1);
+                string imagePath = await DownloadImageFromURL(URL, i + 1);
+                // Checks //
+                if (imagePath != string.Empty) // SAVE PANEL FILE //
+                    panelFiles[i] = imagePath;
                 // Percentage //
                 Console.WriteLine("Installing: " + (100f / panelURLS.Count * i));
             }
@@ -261,7 +244,7 @@ internal static class Program
             // Cleanup //
             foreach (string panelFile in panelFiles)
             {
-                System.IO.File.Delete(panelFile);
+                File.Delete(panelFile);
             }
             // Open Downloads Folder //
             Process.Start("explorer.exe", @$"{downloadLocation}\Downloads");
