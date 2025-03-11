@@ -3,20 +3,11 @@
 using System;
 using System.Net;
 using System.IO;
-using static System.Net.WebRequestMethods;
 using System.Diagnostics;
 using System.Drawing.Imaging;
-using System.Windows.Media.Imaging;
 using System.Net.Http;
-
 using System.Threading.Tasks;
-using System.Security.Policy;
-using System.Drawing;
 using System.IO.Compression;
-using System.Windows.Media.Animation;
-using System.Reflection;
-using System.Runtime.InteropServices;
-using System.Windows.Controls;
 
 using Global;
 
@@ -193,7 +184,7 @@ internal static class Program
     }
     public static string QueryForComicLink()
     {
-        Console.WriteLine("Remember to run as Administrator!");
+        Console.WriteLine("Remember to run as Administrator!\r\n");
         string? input;
         while (true)
         {
@@ -274,6 +265,7 @@ internal static class Program
             }
             // Open Downloads Folder //
             Process.Start("explorer.exe", @$"{downloadLocation}\Downloads");
+            Console.WriteLine("\r\n");
         }
     }
 }
