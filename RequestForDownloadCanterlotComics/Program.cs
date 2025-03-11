@@ -193,6 +193,7 @@ internal static class Program
     }
     public static string QueryForComicLink()
     {
+        Console.WriteLine("Remember to run as Administrator!");
         string? input;
         while (true)
         {
@@ -262,13 +263,17 @@ internal static class Program
                 // Percentage //
                 Console.WriteLine("Installing: " + (100f / panelURLS.Count * i));
             }
+            // Downloads Folder //
+            Directory.CreateDirectory(@$"{downloadLocation}\Downloads");
             // Create Zip File //
-            ZipFileCreator.CreateZipFile($"{downloadLocation}/{comicName}.cbz", panelFiles);
+            ZipFileCreator.CreateZipFile(@$"{downloadLocation}\Downloads\{comicName}.cbz", panelFiles);
             // Cleanup //
             foreach (string panelFile in panelFiles)
             {
                 System.IO.File.Delete(panelFile);
             }
+            // Open Downloads Folder //
+            Process.Start("explorer.exe", @$"{downloadLocation}\Downloads");
         }
     }
 }
