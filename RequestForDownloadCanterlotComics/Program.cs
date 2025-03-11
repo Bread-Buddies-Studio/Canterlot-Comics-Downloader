@@ -19,8 +19,8 @@ public static class ZipFileCreator
     public static void CreateZipFile(string fileName, IEnumerable<string> files)
     {
         // Check if CBZ already exists, if it does then delete it to prevent page duplication //
-        if (System.IO.File.Exists(fileName))
-            System.IO.File.Delete(fileName);
+        if (File.Exists(fileName))
+            File.Delete(fileName);
         // CBZ zip creation // Create and open a new ZIP file
         var zip = ZipFile.Open(fileName, ZipArchiveMode.Create);
         // Add pages to CBZ file //
@@ -195,6 +195,8 @@ internal static class Program
     {
         while (true)
         {
+            // Reset Counter //
+            gatheredURLS = 0;
             // Get Comic Link! //
             comicLink = QueryForComicLink();
             UpdateComicName();
@@ -250,6 +252,7 @@ internal static class Program
             }
             // Open Downloads Folder //
             Process.Start("explorer.exe", @$"{downloadLocation}\Downloads");
+            // Add New Line! //
             Console.WriteLine("\r\n");
         }
     }
