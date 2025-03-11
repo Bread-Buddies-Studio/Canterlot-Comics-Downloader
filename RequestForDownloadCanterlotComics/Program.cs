@@ -18,6 +18,8 @@ using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Windows.Controls;
 
+using Global;
+
 public static class ZipFileCreator
 {
     /// <summary>
@@ -51,7 +53,7 @@ internal static class Program
     // Constants //
     const string baseURL = "https://www.canterlotcomics.com"; // Canterlot Comics Website //
     // Settings //
-    static readonly string downloadLocation = KnownFolders.GetPath(KnownFolder.Downloads);
+    static readonly string downloadLocation = Universal.ProgramFiles; // KnownFolders.GetPath(KnownFolder.Downloads);
     static string comicLink = "https://www.canterlotcomics.com/comic/en/alien_twilight_signing_off-1959";
     // Don't Touch //
     static string comicName = comicLink[(comicLink.LastIndexOf('/') + 1)..(comicLink.LastIndexOf('-'))];

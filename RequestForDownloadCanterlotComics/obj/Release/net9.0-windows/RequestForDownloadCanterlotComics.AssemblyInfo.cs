@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("RequestForDownloadCanterlotComics")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d49bff6e0c1ecf26f78f498327755e70c1110fcd")]
 [assembly: System.Reflection.AssemblyProductAttribute("RequestForDownloadCanterlotComics")]
 [assembly: System.Reflection.AssemblyTitleAttribute("RequestForDownloadCanterlotComics")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
