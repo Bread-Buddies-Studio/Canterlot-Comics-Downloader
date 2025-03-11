@@ -226,6 +226,8 @@ internal static class Program
             }
             // Initialize Panel File Path Array //
             string[] panelFiles = new string[panelURLS.Count];
+            // Downloads Folder //
+            Directory.CreateDirectory(@$"{downloadLocation}\CanterlotComicsPanelsTemp");
             // Download Images //
             for (int i = 0; i < panelURLS.Count; i++)
             {
