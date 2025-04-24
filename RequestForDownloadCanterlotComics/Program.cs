@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.IO.Compression;
 
 using Global;
+using System.Collections.ObjectModel;
 
 public static class ZipFileCreator
 {
@@ -39,8 +40,6 @@ public static class ZipFileCreator
 
 internal static class Program
 {
-    // Constants //
-    const string baseURL = "https://www.canterlotcomics.com"; // Canterlot Comics Website //
     // Settings //
     static readonly string downloadLocation = Universal.ProgramFiles; // KnownFolders.GetPath(KnownFolder.Downloads);
     static string comicLink = "https://www.canterlotcomics.com/comic/en/alien_twilight_signing_off-1959";
@@ -159,7 +158,7 @@ internal static class Program
     }
     public static string QueryForComicLink()
     {
-        Console.WriteLine("Remember to run as Administrator!\r\n");
+        Console.WriteLine("\nRemember to run as Administrator!\r\n");
         string? input;
         while (true)
         {
@@ -191,8 +190,116 @@ internal static class Program
         return input;
     }
 
-    static async Task Main()
+    static async Task Main(string[] args)
     {
+        // Cover Update //
+        if (args.Length is not 0)
+        {
+            string coverPath = args[0];
+            // Make Sure Download Folder Exists //
+            Directory.CreateDirectory(@$"{downloadLocation}\Downloads");
+            // Enumerator //
+            IEnumerable<string> comicFiles = Directory.EnumerateFiles($@"{downloadLocation}\Downloads");
+            // Log All Comics //
+            foreach ((int index, string comicPath) in comicFiles.Index())
+            {
+                string fileName = Path.GetFileNameWithoutExtension(comicPath);
+                Console.WriteLine($"{index}. {fileName}");
+            }
+            // Request Comic //
+            string chosenComic = string.Empty;
+            while (true)
+            {
+                Console.WriteLine("Pick a Comic");
+                string? input = Console.ReadLine();
+                // Pre-Conditions //
+                if (input is null)
+                {
+                    Console.WriteLine("Empty input detected! Please input a number from the list or the name!");
+                    continue;
+                }
+                // Break-Conditions //
+                if (int.TryParse(input, out int comicIndex))
+                {
+                    chosenComic = comicFiles.ElementAt(comicIndex);
+                    break;
+                }
+                if (comicFiles.Any(comicPath => Path.GetFileNameWithoutExtension(comicPath) == input))
+                {
+                    chosenComic = comicFiles.First(comicPath => Path.GetFileNameWithoutExtension(comicPath) == input);
+                    break;
+                }
+            }
+            // Request Cover Overwrite //
+            bool overwriteCover = false;
+            while (true)
+            {
+                // Request //
+                Console.WriteLine("Overwrite Cover?");
+                // Get //
+                ConsoleKeyInfo key = Console.ReadKey();
+                // Conditions //
+                if (key.KeyChar is not 'y' and not 'n')
+                {
+                    Console.WriteLine("Invalid Input!\n");
+                    continue;
+                }
+                // Success //
+                overwriteCover = key.KeyChar is 'y';
+                break;
+            }
+            // Open Zip File //
+            using FileStream stream = new(chosenComic, FileMode.Open);
+            using ZipArchive archive = new(stream, ZipArchiveMode.Update);
+            // Get Current Cover //
+            ZipArchiveEntry coverEntry = archive.Entries.OrderBy(name => name.Name).First();
+            // Add New Cover //
+            int failCount = 0;
+            while (true)
+            {
+                try
+                {
+                    // Overwrite Cover? //
+                    if (overwriteCover)
+                    {
+                        archive.CreateEntryFromFile(coverPath, coverEntry.Name, CompressionLevel.NoCompression);
+                        break;
+                    }
+                    // Don't Overwrite //
+                    foreach (var entry in archive.Entries.Reverse())
+                    {
+                        string entryName = Path.GetFileNameWithoutExtension(entry.FullName);
+                        string entryNameWithExtension = Path.GetFileName(entry.FullName);
+                        int pageIndex = int.Parse(entryName[1..]);
+                        string fileName = string.Format("-{0,8:D8}", pageIndex + 1);
+
+                        var newEntry = archive.CreateEntry(string.Concat(fileName, entryNameWithExtension.AsSpan(entryNameWithExtension.IndexOf('.'))));
+
+                        using (Stream oldStream = entry.Open())
+                        using (Stream newStream = newEntry.Open())
+                        {
+                            oldStream.CopyTo(newStream);
+                        }
+
+                        entry.Delete();
+                    }
+                    // Create cover when not overwriting //
+                    archive.CreateEntryFromFile(coverPath, string.Format("-{0,8:D8}", 1) + Path.GetExtension(coverPath), CompressionLevel.NoCompression);
+                    break;
+                }
+
+                catch (IOException exception)
+                {
+                    failCount++;
+                    Console.WriteLine($"Failed To Update Cover x{failCount}, trying again...");
+                    Console.WriteLine(exception.Message + "\n");
+                    await Task.Delay(500);
+                }
+            }
+            // Success //
+            Console.WriteLine("\nSuccessfully Added Cover!\n");
+        }
+        // Main //
         while (true)
         {
             // Reset Counter //

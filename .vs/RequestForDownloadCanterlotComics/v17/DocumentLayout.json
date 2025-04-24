@@ -7,16 +7,16 @@
       "RelativeMoniker": "D:0:0:{FC6FBC0E-1289-4FA7-ACA3-8ADEE6229CC8}|RequestForDownloadCanterlotComics\\RequestForDownloadCanterlotComics.csproj|solutionrelative:requestfordownloadcanterlotcomics\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FC6FBC0E-1289-4FA7-ACA3-8ADEE6229CC8}|RequestForDownloadCanterlotComics\\RequestForDownloadCanterlotComics.csproj|c:\\users\\bread\\documents\\github\\canterlot-comics-downloader\\requestfordownloadcanterlotcomics\\global.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FC6FBC0E-1289-4FA7-ACA3-8ADEE6229CC8}|RequestForDownloadCanterlotComics\\RequestForDownloadCanterlotComics.csproj|solutionrelative:requestfordownloadcanterlotcomics\\global.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{FC6FBC0E-1289-4FA7-ACA3-8ADEE6229CC8}|RequestForDownloadCanterlotComics\\RequestForDownloadCanterlotComics.csproj|c:\\users\\bread\\documents\\github\\canterlot-comics-downloader\\requestfordownloadcanterlotcomics\\downloader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FC6FBC0E-1289-4FA7-ACA3-8ADEE6229CC8}|RequestForDownloadCanterlotComics\\RequestForDownloadCanterlotComics.csproj|solutionrelative:requestfordownloadcanterlotcomics\\downloader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{FC6FBC0E-1289-4FA7-ACA3-8ADEE6229CC8}|RequestForDownloadCanterlotComics\\RequestForDownloadCanterlotComics.csproj|c:\\users\\bread\\documents\\github\\canterlot-comics-downloader\\requestfordownloadcanterlotcomics\\app.manifest||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
       "RelativeMoniker": "D:0:0:{FC6FBC0E-1289-4FA7-ACA3-8ADEE6229CC8}|RequestForDownloadCanterlotComics\\RequestForDownloadCanterlotComics.csproj|solutionrelative:requestfordownloadcanterlotcomics\\app.manifest||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FC6FBC0E-1289-4FA7-ACA3-8ADEE6229CC8}|RequestForDownloadCanterlotComics\\RequestForDownloadCanterlotComics.csproj|c:\\users\\bread\\documents\\github\\canterlot-comics-downloader\\requestfordownloadcanterlotcomics\\downloader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FC6FBC0E-1289-4FA7-ACA3-8ADEE6229CC8}|RequestForDownloadCanterlotComics\\RequestForDownloadCanterlotComics.csproj|solutionrelative:requestfordownloadcanterlotcomics\\downloader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{FC6FBC0E-1289-4FA7-ACA3-8ADEE6229CC8}|RequestForDownloadCanterlotComics\\RequestForDownloadCanterlotComics.csproj|c:\\users\\bread\\documents\\github\\canterlot-comics-downloader\\requestfordownloadcanterlotcomics\\global.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FC6FBC0E-1289-4FA7-ACA3-8ADEE6229CC8}|RequestForDownloadCanterlotComics\\RequestForDownloadCanterlotComics.csproj|solutionrelative:requestfordownloadcanterlotcomics\\global.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,15 +34,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "Downloader.cs",
               "DocumentMoniker": "C:\\Users\\Bread\\Documents\\GitHub\\Canterlot-Comics-Downloader\\RequestForDownloadCanterlotComics\\Downloader.cs",
               "RelativeDocumentMoniker": "RequestForDownloadCanterlotComics\\Downloader.cs",
               "ToolTip": "C:\\Users\\Bread\\Documents\\GitHub\\Canterlot-Comics-Downloader\\RequestForDownloadCanterlotComics\\Downloader.cs",
               "RelativeToolTip": "RequestForDownloadCanterlotComics\\Downloader.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAA0AAAAfAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABEAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-11T17:11:33.842Z"
+              "WhenOpened": "2025-03-11T17:11:33.842Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -54,19 +55,21 @@
               "RelativeToolTip": "RequestForDownloadCanterlotComics\\app.manifest",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001203|",
-              "WhenOpened": "2025-03-11T16:22:34.362Z"
+              "WhenOpened": "2025-03-11T16:22:34.362Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "Global.cs",
               "DocumentMoniker": "C:\\Users\\Bread\\Documents\\GitHub\\Canterlot-Comics-Downloader\\RequestForDownloadCanterlotComics\\Global.cs",
               "RelativeDocumentMoniker": "RequestForDownloadCanterlotComics\\Global.cs",
               "ToolTip": "C:\\Users\\Bread\\Documents\\GitHub\\Canterlot-Comics-Downloader\\RequestForDownloadCanterlotComics\\Global.cs",
               "RelativeToolTip": "RequestForDownloadCanterlotComics\\Global.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-11T01:47:01.045Z"
+              "WhenOpened": "2025-03-11T01:47:01.045Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -76,7 +79,7 @@
               "RelativeDocumentMoniker": "RequestForDownloadCanterlotComics\\Program.cs",
               "ToolTip": "C:\\Users\\Bread\\Documents\\GitHub\\Canterlot-Comics-Downloader\\RequestForDownloadCanterlotComics\\Program.cs",
               "RelativeToolTip": "RequestForDownloadCanterlotComics\\Program.cs",
-              "ViewState": "AgIAAPAAAAAAAAAAAAAAAP4AAAAfAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-09T01:35:31.628Z",
               "EditorCaption": ""

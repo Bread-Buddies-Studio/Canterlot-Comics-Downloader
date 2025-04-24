@@ -15,13 +15,9 @@ class Downloader
     {
         try
         {
-            using (var stream = await client.GetStreamAsync(url))
-            {
-                using (var fs = new FileStream(filePath, FileMode.OpenOrCreate))
-                {
-                    await stream.CopyToAsync(fs);
-                }
-            }
+            using var stream = await client.GetStreamAsync(url);
+            using var fs = new FileStream(filePath, FileMode.OpenOrCreate);
+            await stream.CopyToAsync(fs);
 
             return true;
         }
