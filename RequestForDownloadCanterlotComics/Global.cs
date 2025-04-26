@@ -9,4 +9,8 @@ public static class Universal
     public const string ProgramName = "CanterlotDownloader";
     public static readonly string ProgramFiles = @$"{Environment.ExpandEnvironmentVariables("%ProgramW6432%")}\{ProgramName}";
 
+    public static readonly string PanelsTemp = $@"{ProgramFiles}\PanelsTemp";
+    public static readonly string UpscaledTemp = $@"{ProgramFiles}\UpscaledTemp";
+    public static readonly string UpscalerDirectory = $@"{ProgramFiles}\Upscaler";
+    public static readonly string UpscalerEXE = $@"{UpscalerDirectory}\Upscaler.exe";
 }

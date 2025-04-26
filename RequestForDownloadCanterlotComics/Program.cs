@@ -9,6 +9,7 @@ using System.IO.Compression;
 
 using Global;
 using System.Collections.ObjectModel;
+using RequestForDownloadCanterlotComics;
 
 public static class ZipFileCreator
 {
@@ -146,7 +147,7 @@ internal static class Program
     {
         // If you want it as PNG
         string fileName = string.Format("-{0,8:D8}", panelIndex);
-        string downloadedTo = @$"{downloadLocation}\CanterlotComicsPanelsTemp\{fileName}.png";
+        string downloadedTo = @$"{PanelsTemp}\{fileName}.png";
         // Attempt Download //
         bool success = await Downloader.DownloadFilesAsync(new Uri(sourceURL), downloadedTo);
         // Return Success //
@@ -189,7 +190,6 @@ internal static class Program
         }
         return input;
     }
-
     static async Task Main(string[] args)
     {
         // Cover Update //
@@ -235,7 +235,7 @@ internal static class Program
             while (true)
             {
                 // Request //
-                Console.WriteLine("Overwrite Cover?");
+                Console.WriteLine("Overwrite Cover? (y/n)");
                 // Get //
                 ConsoleKeyInfo key = Console.ReadKey();
                 // Conditions //
@@ -336,7 +336,7 @@ internal static class Program
             // Initialize Panel File Path Array //
             string[] panelFiles = new string[panelURLS.Count];
             // Downloads Folder //
-            Directory.CreateDirectory(@$"{downloadLocation}\CanterlotComicsPanelsTemp");
+            Directory.CreateDirectory(PanelsTemp);
             // Download Images //
             for (int i = 0; i < panelURLS.Count; i++)
             {
@@ -354,13 +354,14 @@ internal static class Program
             ZipFileCreator.CreateZipFile(@$"{downloadLocation}\Downloads\{comicName}.cbz", panelFiles);
             // Cleanup //
             foreach (string panelFile in panelFiles)
-            {
                 File.Delete(panelFile);
-            }
             // Open Downloads Folder //
             Process.Start("explorer.exe", @$"{downloadLocation}\Downloads");
             // Add New Line! //
             Console.WriteLine("\r\n");
+            // Upscale //
+            if (Input.YesOrNo("Upscale Comic?"))
+                await Upscaler.UpscaleComic(@$"{downloadLocation}\Downloads\{comicName}.cbz", Input.RequestByte("Scale Factor?"));
         }
     }
 }
