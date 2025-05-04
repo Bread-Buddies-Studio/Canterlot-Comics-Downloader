@@ -60,3 +60,17 @@ C:\Users\Bread\OneDrive\Documents\GitHub\Canterlot-Comics-Downloader\RequestForD
 C:\Users\Bread\OneDrive\Documents\GitHub\Canterlot-Comics-Downloader\RequestForDownloadCanterlotComics\obj\Debug\net9.0-windows\RequestForDownloadCanterlotComics.pdb
 C:\Users\Bread\OneDrive\Documents\GitHub\Canterlot-Comics-Downloader\RequestForDownloadCanterlotComics\obj\Debug\net9.0-windows\RequestForDownloadCanterlotComics.genruntimeconfig.cache
 C:\Users\Bread\OneDrive\Documents\GitHub\Canterlot-Comics-Downloader\RequestForDownloadCanterlotComics\obj\Debug\net9.0-windows\ref\RequestForDownloadCanterlotComics.dll
+C:\Users\Bread\OneDrive\Documents\GitHub\Canterlot-Comics-Downloader\RequestForDownloadCanterlotComics\bin\Debug\net9.0-windows\Upscaler\models\realesr-animevideov3-x2.bin
+C:\Users\Bread\OneDrive\Documents\GitHub\Canterlot-Comics-Downloader\RequestForDownloadCanterlotComics\bin\Debug\net9.0-windows\Upscaler\models\realesr-animevideov3-x2.param
+C:\Users\Bread\OneDrive\Documents\GitHub\Canterlot-Comics-Downloader\RequestForDownloadCanterlotComics\bin\Debug\net9.0-windows\Upscaler\models\realesr-animevideov3-x3.bin
+C:\Users\Bread\OneDrive\Documents\GitHub\Canterlot-Comics-Downloader\RequestForDownloadCanterlotComics\bin\Debug\net9.0-windows\Upscaler\models\realesr-animevideov3-x3.param
+C:\Users\Bread\OneDrive\Documents\GitHub\Canterlot-Comics-Downloader\RequestForDownloadCanterlotComics\bin\Debug\net9.0-windows\Upscaler\models\realesr-animevideov3-x4.bin
+C:\Users\Bread\OneDrive\Documents\GitHub\Canterlot-Comics-Downloader\RequestForDownloadCanterlotComics\bin\Debug\net9.0-windows\Upscaler\models\realesr-animevideov3-x4.param
+C:\Users\Bread\OneDrive\Documents\GitHub\Canterlot-Comics-Downloader\RequestForDownloadCanterlotComics\bin\Debug\net9.0-windows\Upscaler\models\realesrgan-x4plus-anime.bin
+C:\Users\Bread\OneDrive\Documents\GitHub\Canterlot-Comics-Downloader\RequestForDownloadCanterlotComics\bin\Debug\net9.0-windows\Upscaler\models\realesrgan-x4plus-anime.param
+C:\Users\Bread\OneDrive\Documents\GitHub\Canterlot-Comics-Downloader\RequestForDownloadCanterlotComics\bin\Debug\net9.0-windows\Upscaler\models\realesrgan-x4plus.bin
+C:\Users\Bread\OneDrive\Documents\GitHub\Canterlot-Comics-Downloader\RequestForDownloadCanterlotComics\bin\Debug\net9.0-windows\Upscaler\models\realesrgan-x4plus.param
+C:\Users\Bread\OneDrive\Documents\GitHub\Canterlot-Comics-Downloader\RequestForDownloadCanterlotComics\bin\Debug\net9.0-windows\Upscaler\README_windows.md
+C:\Users\Bread\OneDrive\Documents\GitHub\Canterlot-Comics-Downloader\RequestForDownloadCanterlotComics\bin\Debug\net9.0-windows\Upscaler\Upscaler.exe
+C:\Users\Bread\OneDrive\Documents\GitHub\Canterlot-Comics-Downloader\RequestForDownloadCanterlotComics\bin\Debug\net9.0-windows\Upscaler\vcomp140.dll
+C:\Users\Bread\OneDrive\Documents\GitHub\Canterlot-Comics-Downloader\RequestForDownloadCanterlotComics\bin\Debug\net9.0-windows\Upscaler\vcomp140d.dll

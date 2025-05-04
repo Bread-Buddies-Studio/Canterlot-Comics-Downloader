@@ -74,6 +74,7 @@ class Upscaler
             // Upscale Page //
             string upscaledPagePath = await Upscale(tempPagePath, scale);
             // Overwrite Page //
+            entry.Delete();
             archive.CreateEntryFromFile(upscaledPagePath, entryNameWithExtension, CompressionLevel.NoCompression);
             // Clean Up //
             File.Delete(tempPagePath);
