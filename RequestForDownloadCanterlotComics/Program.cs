@@ -277,9 +277,7 @@ internal static class Program
 
                         using (Stream oldStream = entry.Open())
                         using (Stream newStream = newEntry.Open())
-                        {
                             oldStream.CopyTo(newStream);
-                        }
 
                         entry.Delete();
                     }
