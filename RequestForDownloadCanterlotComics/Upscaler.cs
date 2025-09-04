@@ -12,7 +12,7 @@ namespace RequestForDownloadCanterlotComics;
 
 class Upscaler
 {
-    public static async Task<string> Upscale(string imagePath, byte scale = 4)
+    public static async Task<string> Upscale(string imagePath, Process process, byte scale = 4)
     {
         // Original Data //
         string imageName = Path.GetFileNameWithoutExtension(imagePath);
@@ -24,8 +24,6 @@ class Upscaler
         //Console.WriteLine(imagePath);
         //Console.WriteLine(downloadPath);
         // Begin Upscale //
-        using Process process = new();
-        process.StartInfo.FileName = UpscalerEXE;
         process.StartInfo.Arguments = string.Join(' ',
         [
             "-i", // input-path
@@ -46,23 +44,27 @@ class Upscaler
 
         return downloadPath;
     }
-    public static async Task<string[]> Upscale(string[] imagePaths, byte scale = 4)
-    {
-        string[] downloadPaths = new string[imagePaths.Length];
-        foreach ((int index, string imagePath) in imagePaths.Index())
-        {
-            downloadPaths[index] = await Upscale(imagePath, scale);
-            Console.WriteLine($"Finished Upscaling Page x{index}: {100 / imagePaths.Length * index}");
-        }
+    //public static async Task<string[]> Upscale(string[] imagePaths, byte scale = 4)
+    //{
+    //    string[] downloadPaths = new string[imagePaths.Length];
+    //    foreach ((int index, string imagePath) in imagePaths.Index())
+    //    {
+    //        downloadPaths[index] = await Upscale(imagePath, scale);
+    //        Console.WriteLine($"Finished Upscaling Page x{index}: {100 / imagePaths.Length * index}");
+    //    }
 
-        return downloadPaths;
-    }
+    //    return downloadPaths;
+    //}
     public static async Task UpscaleComic(string comicPath, byte scale = 4)
     {
         using FileStream stream = new(comicPath, FileMode.Open);
         using ZipArchive archive = new(stream, ZipArchiveMode.Update);
+        using Process upscalerProcess = new();
+
+        upscalerProcess.StartInfo.FileName = UpscalerEXE;
         // Don't Overwrite //
         int pageAmount = archive.Entries.Count;
+
         foreach ((int index, var entry) in archive.Entries.Reverse().Index())
         {
             // Entry Data //
@@ -72,7 +74,7 @@ class Upscaler
             // Extract Page to Upscale //
             entry.ExtractToFile(tempPagePath);
             // Upscale Page //
-            string upscaledPagePath = await Upscale(tempPagePath, scale);
+            string upscaledPagePath = await Upscale(tempPagePath, upscalerProcess, scale);
             // Overwrite Page //
             entry.Delete();
             archive.CreateEntryFromFile(upscaledPagePath, entryNameWithExtension, CompressionLevel.NoCompression);

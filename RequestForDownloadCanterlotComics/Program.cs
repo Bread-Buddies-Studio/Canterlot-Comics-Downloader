@@ -10,6 +10,7 @@ using System.IO.Compression;
 using Global;
 using System.Collections.ObjectModel;
 using RequestForDownloadCanterlotComics;
+using System.Numerics;
 
 public static class ZipFileCreator
 {
@@ -56,15 +57,12 @@ internal static class Program
         try
         {
             int startingIndex = 0;
-            //Console.WriteLine(responseBody);
             while (true)
             {
                 int index = responseBody.IndexOf(lookingFor, startingIndex);
                 // Conditions //
                 if (index is -1)
-                {
                     break;
-                }
                 // Find End of URL //
                 int endOfURLIndex = responseBody.IndexOf('"', index);
                 // Switch up starting index! //
@@ -78,7 +76,7 @@ internal static class Program
                 information.Add(prefix + URL + suffix);
                 // Debug //
                 gatheredURLS++;
-                Console.WriteLine($"{downloadText}: x{gatheredURLS}");
+                ConsoleExtensions.ReplaceLine($"{downloadText}: x{gatheredURLS}");
             }
             // Console.WriteLine(responseBody);
         }
@@ -336,16 +334,22 @@ internal static class Program
             // Downloads Folder //
             Directory.CreateDirectory(PanelsTemp);
             // Download Images //
-            for (int i = 0; i < panelURLS.Count; i++)
-            {
-                string URL = panelURLS.ElementAt(i);
-                string imagePath = await DownloadImageFromURL(URL, i + 1);
-                // Checks //
-                if (imagePath != string.Empty) // SAVE PANEL FILE //
-                    panelFiles[i] = imagePath;
-                // Percentage //
-                Console.WriteLine("Installing: " + (100f / panelURLS.Count * i));
-            }
+            Console.WriteLine();
+
+            int completedTasks = 1;
+
+            IEnumerable<Task> panelFetchTasks = panelURLS.Select(async (URL, i) =>
+                {
+                    string imagePath = await DownloadImageFromURL(URL, i + 1);
+                    // Checks //
+                    if (imagePath != string.Empty) // SAVE PANEL FILE //
+                        panelFiles[i] = imagePath;
+                    // Percentage //
+                    ConsoleExtensions.ReplaceLine("Installing: " + (100f / panelURLS.Count * completedTasks++));
+                }
+            );
+
+            await Task.WhenAll(panelFetchTasks);
             // Downloads Folder //
             Directory.CreateDirectory(@$"{downloadLocation}\Downloads");
             // Create Zip File //
