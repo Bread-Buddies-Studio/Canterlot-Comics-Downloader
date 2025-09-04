@@ -11,7 +11,7 @@ public static class Input
     public static bool YesOrNo(string query)
     {
         // Query //
-        Console.WriteLine(query + " (y/n)");
+        Console.Write(query + " (y/n): ");
         // Request Input //
         while (true)
         {
@@ -23,6 +23,8 @@ public static class Input
                 Console.WriteLine("Invalid Input!\n");
                 continue;
             }
+            // Make New Line //
+            Console.WriteLine();
             // Checks //
             return input is 'y' or 'Y';
         }
