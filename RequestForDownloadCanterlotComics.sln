@@ -5,6 +5,10 @@ VisualStudioVersion = 17.13.35825.156
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RequestForDownloadCanterlotComics", "RequestForDownloadCanterlotComics\RequestForDownloadCanterlotComics.csproj", "{FC6FBC0E-1289-4FA7-ACA3-8ADEE6229CC8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{A975A042-2AA5-4BE8-8894-081092638617}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Upscaler", "Upscaler\Upscaler.csproj", "{41C32150-AFB3-43F0-9387-8ECDB322F782}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{FC6FBC0E-1289-4FA7-ACA3-8ADEE6229CC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FC6FBC0E-1289-4FA7-ACA3-8ADEE6229CC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FC6FBC0E-1289-4FA7-ACA3-8ADEE6229CC8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A975A042-2AA5-4BE8-8894-081092638617}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A975A042-2AA5-4BE8-8894-081092638617}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A975A042-2AA5-4BE8-8894-081092638617}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A975A042-2AA5-4BE8-8894-081092638617}.Release|Any CPU.Build.0 = Release|Any CPU
+		{41C32150-AFB3-43F0-9387-8ECDB322F782}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{41C32150-AFB3-43F0-9387-8ECDB322F782}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{41C32150-AFB3-43F0-9387-8ECDB322F782}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{41C32150-AFB3-43F0-9387-8ECDB322F782}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

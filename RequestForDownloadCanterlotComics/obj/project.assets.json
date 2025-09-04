@@ -104,6 +104,29 @@
             "related": ".xml"
           }
         }
+      },
+      "Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v9.0",
+        "compile": {
+          "bin/placeholder/Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Core.dll": {}
+        }
+      },
+      "Upscaler/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v9.0",
+        "dependencies": {
+          "Core": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Upscaler.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Upscaler.dll": {}
+        }
       }
     }
   },
@@ -413,12 +436,24 @@
         "system.runtime.extensions.4.3.0.nupkg.sha512",
         "system.runtime.extensions.nuspec"
       ]
+    },
+    "Core/1.0.0": {
+      "type": "project",
+      "path": "../Core/Core.csproj",
+      "msbuildProject": "../Core/Core.csproj"
+    },
+    "Upscaler/1.0.0": {
+      "type": "project",
+      "path": "../Upscaler/Upscaler.csproj",
+      "msbuildProject": "../Upscaler/Upscaler.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net9.0-windows7.0": [
+      "Core >= 1.0.0",
       "System.Drawing.Common >= 9.0.2",
-      "System.Drawing.Primitives >= 4.3.0"
+      "System.Drawing.Primitives >= 4.3.0",
+      "Upscaler >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -452,7 +487,14 @@
       "frameworks": {
         "net9.0-windows7.0": {
           "targetAlias": "net9.0-windows",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\Bread\\Documents\\GitHub\\Canterlot-Comics-Downloader\\Core\\Core.csproj": {
+              "projectPath": "C:\\Users\\Bread\\Documents\\GitHub\\Canterlot-Comics-Downloader\\Core\\Core.csproj"
+            },
+            "C:\\Users\\Bread\\Documents\\GitHub\\Canterlot-Comics-Downloader\\Upscaler\\Upscaler.csproj": {
+              "projectPath": "C:\\Users\\Bread\\Documents\\GitHub\\Canterlot-Comics-Downloader\\Upscaler\\Upscaler.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
@@ -465,7 +507,7 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "9.0.300"
+      "SdkAnalysisLevel": "9.0.200"
     },
     "frameworks": {
       "net9.0-windows7.0": {
@@ -499,7 +541,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.304/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

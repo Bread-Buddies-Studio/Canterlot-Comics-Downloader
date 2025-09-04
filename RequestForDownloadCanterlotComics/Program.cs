@@ -1,4 +1,4 @@
-﻿namespace MainSpace;
+﻿namespace RequestForDownloadCanterlotComics;
 // Imports //
 using System;
 using System.IO;
@@ -7,10 +7,10 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.IO.Compression;
 
-using Global;
 using System.Collections.ObjectModel;
-using RequestForDownloadCanterlotComics;
 using System.Numerics;
+using Core.Services;
+using Upscaler.Services;
 
 public static class ZipFileCreator
 {
@@ -43,12 +43,12 @@ public static class ZipFileCreator
 internal static class Program
 {
     // Settings //
-    static readonly string downloadLocation = Universal.ProgramFiles; // KnownFolders.GetPath(KnownFolder.Downloads);
+    static readonly string downloadLocation = ProgramFiles; // KnownFolders.GetPath(KnownFolder.Downloads);
     static string comicLink = "https://www.canterlotcomics.com/comic/en/alien_twilight_signing_off-1959";
     // Don't Touch //
-    static string comicName = comicLink[(comicLink.LastIndexOf('/') + 1)..(comicLink.LastIndexOf('-'))];
+    static string comicName = comicLink[(comicLink.LastIndexOf('/') + 1)..comicLink.LastIndexOf('-')];
     static int gatheredURLS = 0;
-    // HttpClient is intended to be instantiated once per application, rather than per-use. See Remarks.
+    // HttpClient is intended to be instantiated once per application, rather than per-use.
     public static readonly HttpClient client = new();
     static List<string> LookForInfo(string responseBody, string lookingFor, string prefix = "", string suffix = "", string downloadText = "")
     {
@@ -147,13 +147,13 @@ internal static class Program
         string fileName = string.Format("-{0,8:D8}", panelIndex);
         string downloadedTo = @$"{PanelsTemp}\{fileName}.png";
         // Attempt Download //
-        bool success = await Downloader.DownloadFilesAsync(new Uri(sourceURL), downloadedTo);
+        bool success = await NetworkService.DownloadFilesAsync(new Uri(sourceURL), downloadedTo);
         // Return Success //
         return success ? downloadedTo : string.Empty;
     }
     public static void UpdateComicName()
     {
-        comicName = comicLink[(comicLink.LastIndexOf('/') + 1)..(comicLink.LastIndexOf('-'))];
+        comicName = comicLink[(comicLink.LastIndexOf('/') + 1)..comicLink.LastIndexOf('-')];
     }
     public static string QueryForComicLink()
     {
@@ -345,7 +345,7 @@ internal static class Program
                     if (imagePath != string.Empty) // SAVE PANEL FILE //
                         panelFiles[i] = imagePath;
                     // Percentage //
-                    ConsoleExtensions.ReplaceLine("Installing: " + (100f / panelURLS.Count * completedTasks++));
+                    ConsoleExtensions.ReplaceLine("Installing: " + 100f / panelURLS.Count * completedTasks++);
                 }
             );
 
@@ -362,8 +362,8 @@ internal static class Program
             // Add New Line! //
             Console.WriteLine("\r\n");
             // Upscale //
-            if (Input.YesOrNo("Upscale Comic?"))
-                await Upscaler.UpscaleComic(@$"{downloadLocation}\Downloads\{comicName}.cbz", Input.RequestByte("Scale Factor?"));
+            if (InputService.YesOrNo("Upscale Comic?"))
+                await UpscalerService.UpscaleComic(@$"{downloadLocation}\Downloads\{comicName}.cbz", InputService.RequestByte("Scale Factor?"));
         }
     }
 }

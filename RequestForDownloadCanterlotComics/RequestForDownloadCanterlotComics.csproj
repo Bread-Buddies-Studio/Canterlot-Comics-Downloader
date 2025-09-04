@@ -10,70 +10,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Upscaler\models\realesr-animevideov3-x2.bin" />
-    <None Remove="Upscaler\models\realesr-animevideov3-x2.param" />
-    <None Remove="Upscaler\models\realesr-animevideov3-x3.bin" />
-    <None Remove="Upscaler\models\realesr-animevideov3-x3.param" />
-    <None Remove="Upscaler\models\realesr-animevideov3-x4.bin" />
-    <None Remove="Upscaler\models\realesr-animevideov3-x4.param" />
-    <None Remove="Upscaler\models\realesrgan-x4plus-anime.bin" />
-    <None Remove="Upscaler\models\realesrgan-x4plus-anime.param" />
-    <None Remove="Upscaler\models\realesrgan-x4plus.bin" />
-    <None Remove="Upscaler\models\realesrgan-x4plus.param" />
-    <None Remove="Upscaler\README_windows.md" />
-    <None Remove="Upscaler\Upscaler.exe" />
-    <None Remove="Upscaler\vcomp140.dll" />
-    <None Remove="Upscaler\vcomp140d.dll" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="Upscaler\models\realesr-animevideov3-x2.bin">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Upscaler\models\realesr-animevideov3-x2.param">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Upscaler\models\realesr-animevideov3-x3.bin">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Upscaler\models\realesr-animevideov3-x3.param">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Upscaler\models\realesr-animevideov3-x4.bin">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Upscaler\models\realesr-animevideov3-x4.param">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Upscaler\models\realesrgan-x4plus-anime.bin">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Upscaler\models\realesrgan-x4plus-anime.param">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Upscaler\models\realesrgan-x4plus.bin">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Upscaler\models\realesrgan-x4plus.param">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Upscaler\README_windows.md">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Upscaler\Upscaler.exe">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Upscaler\vcomp140.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Upscaler\vcomp140d.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="System.Drawing.Common" Version="9.0.2" />
     <PackageReference Include="System.Drawing.Primitives" Version="4.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Core\Core.csproj" />
+    <ProjectReference Include="..\Upscaler\Upscaler.csproj" />
   </ItemGroup>
 
 </Project>
