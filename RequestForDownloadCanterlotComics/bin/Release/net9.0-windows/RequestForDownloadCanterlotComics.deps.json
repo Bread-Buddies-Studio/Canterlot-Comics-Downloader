@@ -8,8 +8,10 @@
     ".NETCoreApp,Version=v9.0": {
       "RequestForDownloadCanterlotComics/1.0.0": {
         "dependencies": {
+          "Core": "1.0.0",
           "System.Drawing.Common": "9.0.2",
-          "System.Drawing.Primitives": "4.3.0"
+          "System.Drawing.Primitives": "4.3.0",
+          "Upscaler": "1.0.0"
         },
         "runtime": {
           "RequestForDownloadCanterlotComics.dll": {}
@@ -40,6 +42,25 @@
           "Microsoft.NETCore.Platforms": "1.1.0",
           "Microsoft.NETCore.Targets": "1.1.0",
           "System.Runtime": "4.3.0"
+        }
+      },
+      "Core/1.0.0": {
+        "runtime": {
+          "Core.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "Upscaler/1.0.0": {
+        "dependencies": {
+          "Core": "1.0.0"
+        },
+        "runtime": {
+          "Upscaler.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       }
     }
@@ -98,6 +119,16 @@
       "sha512": "sha512-guW0uK0fn5fcJJ1tJVXYd7/1h5F+pea1r7FLSOz/f8vPEqbR2ZAknuRDvTQ8PzAilDveOxNjSfr0CHfIQfFk8g==",
       "path": "system.runtime.extensions/4.3.0",
       "hashPath": "system.runtime.extensions.4.3.0.nupkg.sha512"
+    },
+    "Core/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Upscaler/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     }
   }
 }

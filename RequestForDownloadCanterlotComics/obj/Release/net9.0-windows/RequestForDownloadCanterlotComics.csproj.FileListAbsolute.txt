@@ -83,3 +83,8 @@ C:\Users\Bread\Documents\GitHub\Canterlot-Comics-Downloader\RequestForDownloadCa
 C:\Users\Bread\Documents\GitHub\Canterlot-Comics-Downloader\RequestForDownloadCanterlotComics\bin\Release\net9.0-windows\Upscaler\Upscaler.exe
 C:\Users\Bread\Documents\GitHub\Canterlot-Comics-Downloader\RequestForDownloadCanterlotComics\bin\Release\net9.0-windows\Upscaler\vcomp140.dll
 C:\Users\Bread\Documents\GitHub\Canterlot-Comics-Downloader\RequestForDownloadCanterlotComics\bin\Release\net9.0-windows\Upscaler\vcomp140d.dll
+C:\Users\Bread\Documents\GitHub\Canterlot-Comics-Downloader\RequestForDownloadCanterlotComics\bin\Release\net9.0-windows\Core.dll
+C:\Users\Bread\Documents\GitHub\Canterlot-Comics-Downloader\RequestForDownloadCanterlotComics\bin\Release\net9.0-windows\Upscaler.dll
+C:\Users\Bread\Documents\GitHub\Canterlot-Comics-Downloader\RequestForDownloadCanterlotComics\bin\Release\net9.0-windows\Core.pdb
+C:\Users\Bread\Documents\GitHub\Canterlot-Comics-Downloader\RequestForDownloadCanterlotComics\bin\Release\net9.0-windows\Upscaler.pdb
+C:\Users\Bread\Documents\GitHub\Canterlot-Comics-Downloader\RequestForDownloadCanterlotComics\obj\Release\net9.0-windows\RequestF.6B27C31A.Up2Date

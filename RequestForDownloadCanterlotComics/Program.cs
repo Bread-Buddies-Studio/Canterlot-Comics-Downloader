@@ -11,6 +11,7 @@ using System.Collections.ObjectModel;
 using System.Numerics;
 using Core.Services;
 using Upscaler.Services;
+using Core.Extensions;
 
 public static class ZipFileCreator
 {
@@ -157,7 +158,7 @@ internal static class Program
     }
     public static string QueryForComicLink()
     {
-        Console.WriteLine("\nRemember to run as Administrator!\r\n");
+        Console.WriteLine("\nRemember to run as Administrator!\n");
         string? input;
         while (true)
         {
@@ -228,69 +229,49 @@ internal static class Program
                     break;
                 }
             }
+
+            Console.WriteLine($"Selected: {chosenComic}");
             // Request Cover Overwrite //
-            bool overwriteCover = false;
-            while (true)
-            {
-                // Request //
-                Console.WriteLine("Overwrite Cover? (y/n)");
-                // Get //
-                ConsoleKeyInfo key = Console.ReadKey();
-                // Conditions //
-                if (key.KeyChar is not 'y' and not 'n')
-                {
-                    Console.WriteLine("Invalid Input!\n");
-                    continue;
-                }
-                // Success //
-                overwriteCover = key.KeyChar is 'y';
-                break;
-            }
+            bool overwriteCover = InputService.YesOrNo("Overwrite Cover?");
             // Open Zip File //
             using FileStream stream = new(chosenComic, FileMode.Open);
             using ZipArchive archive = new(stream, ZipArchiveMode.Update);
             // Get Current Cover //
             ZipArchiveEntry coverEntry = archive.Entries.OrderBy(name => name.Name).First();
             // Add New Cover //
-            int failCount = 0;
             while (true)
             {
-                try
+                // Overwrite Cover? //
+                if (overwriteCover)
                 {
-                    // Overwrite Cover? //
-                    if (overwriteCover)
-                    {
-                        archive.CreateEntryFromFile(coverPath, coverEntry.Name, CompressionLevel.NoCompression);
-                        break;
-                    }
-                    // Don't Overwrite //
-                    foreach (var entry in archive.Entries.Reverse())
-                    {
-                        string entryName = Path.GetFileNameWithoutExtension(entry.FullName);
-                        string entryNameWithExtension = Path.GetFileName(entry.FullName);
-                        int pageIndex = int.Parse(entryName[1..]);
-                        string fileName = string.Format("-{0,8:D8}", pageIndex + 1);
-
-                        var newEntry = archive.CreateEntry(string.Concat(fileName, entryNameWithExtension.AsSpan(entryNameWithExtension.IndexOf('.'))));
-
-                        using (Stream oldStream = entry.Open())
-                        using (Stream newStream = newEntry.Open())
-                            oldStream.CopyTo(newStream);
-
-                        entry.Delete();
-                    }
-                    // Create cover when not overwriting //
-                    archive.CreateEntryFromFile(coverPath, string.Format("-{0,8:D8}", 1) + Path.GetExtension(coverPath), CompressionLevel.NoCompression);
+                    // Delete Previous Cover //
+                    coverEntry.Delete();
+                    // Add new Cover //
+                    archive.CreateEntryFromFile(coverPath, coverEntry.Name, CompressionLevel.NoCompression);
                     break;
                 }
-
-                catch (IOException exception)
+                // Don't Overwrite //
+                // Move Pages //
+                foreach ((int index, ZipArchiveEntry entry) in archive.Entries.Reverse().Index()) 
                 {
-                    failCount++;
-                    Console.WriteLine($"Failed To Update Cover x{failCount}, trying again...");
-                    Console.WriteLine(exception.Message + "\n");
-                    await Task.Delay(500);
-                }
+                    string entryName = Path.GetFileNameWithoutExtension(entry.FullName);
+                    string entryNameWithExtension = Path.GetFileName(entry.FullName);
+                    int pageIndex = int.Parse(entryName[1..]);
+                    string fileName = string.Format("-{0,8:D8}", pageIndex + 1);
+
+
+                    var newEntry = archive.CreateEntry(string.Concat(fileName, entryNameWithExtension.AsSpan(entryNameWithExtension.IndexOf('.'))));
+                    // Copy data to new file //
+                    using (Stream oldStream = entry.Open())
+                        using (Stream newStream = newEntry.Open())
+                            oldStream.CopyTo(newStream);
+                    // Delete Old Page //
+                    entry.Delete();
+                    ConsoleExtensions.ReplaceLine("Moving Files | " + (100f / archive.Entries.Count * index));
+                };
+                // Add Cover at Beginning //
+                archive.CreateEntryFromFile(coverPath, string.Format("-{0,8:D8}", 1) + Path.GetExtension(coverPath), CompressionLevel.NoCompression);
+                break;
             }
             // Success //
             Console.WriteLine("\nSuccessfully Added Cover!\n");
