@@ -12,6 +12,7 @@ using System.Numerics;
 using Core.Services;
 using Upscaler.Services;
 using Core.Extensions;
+using System.Drawing.Printing;
 
 public static class ZipFileCreator
 {
@@ -51,9 +52,28 @@ internal static class Program
     static int gatheredURLS = 0;
     // HttpClient is intended to be instantiated once per application, rather than per-use.
     public static readonly HttpClient client = new();
-    static List<string> LookForInfo(string responseBody, string lookingFor, string prefix = "", string suffix = "", string downloadText = "")
+    /// <summary>
+    /// Finds patterns in text.
+    /// </summary>
+    /// <param name="responseBody">
+    /// Usually the HTML Source Code
+    /// </param>
+    /// <param name="lookingFor">
+    /// The pattern to look for.
+    /// </param>
+    /// <param name="prefix">
+    /// A string to add before the strings which are found.
+    /// </param>
+    /// <param name="suffix">
+    /// A string to add after the strings which are found.
+    /// </param>
+    /// <param name="downloadText">
+    /// The download text to be displayed.
+    /// </param>
+    /// <returns></returns>
+    static HashSet<string> LookForInfo(string responseBody, string lookingFor, string prefix = "", string suffix = "", string downloadText = "")
     {
-        List<string> information = [];
+        HashSet<string> information = [];
         // Call asynchronous network methods in a try/catch block to handle exceptions.
         try
         {
@@ -103,7 +123,7 @@ internal static class Program
         //img.canterlotcomics.com/maincomic
         return URL;
     }
-    public static List<string> GetChapters(string responseBody) => 
+    public static HashSet<string> GetChapters(string responseBody) => 
         LookForInfo(responseBody: responseBody, lookingFor:$"/chap/en/{comicName}", prefix: baseURL, downloadText: "Discovered Chapter");
     static async Task<string> GetURLInfo(string sourceURL)
     {
@@ -168,26 +188,28 @@ internal static class Program
             // Inpuut //
             input = Console.ReadLine();
             // Conditions //
-            if (input is null)
+            if (input is null
+                || input.Length <= 38
+                || input[0..38] is not "https://www.canterlotcomics.com/comic/")
             {
                 Console.WriteLine("Invalid Link!\r\n");
                 continue;
             }
-            else if (input.Length <= 41)
-            {
-                Console.WriteLine("Invalid Link!\r\n");
-                continue;
-            }
-            else if (input[0..41] is not "https://www.canterlotcomics.com/comic/en/")
-            {
-                Console.WriteLine("Invalid Link!\r\n");
-                continue;
-            }
-            else
-                break;
-            // Warn //
+            // Successfully got Input //
+            break;
         }
         return input;
+    }
+    public static void GetCredits(string responseBody)
+    {
+        // Authors //
+        HashSet<string> authors = LookForInfo(responseBody, "/author/", downloadText: "Finding Authors");
+        // Get Authors //
+        Console.WriteLine();
+        foreach (string author in authors)
+        {
+            Console.WriteLine($"Found Author: {author}");
+        }
     }
     static async Task Main(string[] args)
     {
@@ -283,12 +305,15 @@ internal static class Program
             gatheredURLS = 0;
             // Get Comic Link! //
             comicLink = QueryForComicLink();
+            // Set Comic Name //
             UpdateComicName();
             // Arrays //
             HashSet<string> panelURLS = [];
-            List<string> chapterURLS;
+            HashSet<string> chapterURLS;
             // Get Main Comic Page //
             string URLInfo = await GetURLInfo(comicLink);
+            // Get Credits //
+            GetCredits(URLInfo);
             // Download Cover //
             string coverURL = GetCoverURL(URLInfo);
             // Download Chapters //
@@ -316,20 +341,22 @@ internal static class Program
             Directory.CreateDirectory(PanelsTemp);
             // Download Images //
             Console.WriteLine();
-
-            int completedTasks = 1;
-
+            // Completed Tasks //
+            int completedTasks = 0;
+            // Fetch Panels (Pages) //
             IEnumerable<Task> panelFetchTasks = panelURLS.Select(async (URL, i) =>
                 {
+                    // Data //
                     string imagePath = await DownloadImageFromURL(URL, i + 1);
+                    double percentage = 100f / panelURLS.Count * ++completedTasks;
                     // Checks //
                     if (imagePath != string.Empty) // SAVE PANEL FILE //
                         panelFiles[i] = imagePath;
                     // Percentage //
-                    ConsoleExtensions.ReplaceLine("Installing: " + 100f / panelURLS.Count * completedTasks++);
+                    ConsoleExtensions.ReplaceLine($"Installing: {percentage}%");
                 }
             );
-
+            // Wait to finish fetching pages //https://www.canterlotcomics.com/comic/en/alien_twilight_signing_off-1959
             await Task.WhenAll(panelFetchTasks);
             // Downloads Folder //
             Directory.CreateDirectory(@$"{downloadLocation}\Downloads");

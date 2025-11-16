@@ -10,11 +10,11 @@ public static class InputService
 {
     public static bool YesOrNo(string query)
     {
-        // Query //
-        Console.Write(query + " (y/n): ");
         // Request Input //
         while (true)
         {
+            // Query //
+            Console.Write(query + " (y/n): ");
             // Input //
             char input = Console.ReadKey().KeyChar;
             // Conditions //
@@ -32,11 +32,12 @@ public static class InputService
 
     public static int RequestInt(string query)
     {
-        // Query //
-        Console.WriteLine(query);
         // Request Input //
         while (true)
         {
+
+            // Query //
+            Console.Write($"{query}: ");
             // Input //
             string? input = Console.ReadLine();
             // Conditions //
@@ -57,11 +58,11 @@ public static class InputService
 
     public static byte RequestByte(string query)
     {
-        // Query //
-        Console.WriteLine(query + " (0-255)");
         // Request Input //
         while (true)
         {
+            // Query //
+            Console.Write(query + " (0-255): ");
             // Input //
             string? input = Console.ReadLine();
             // Conditions //
