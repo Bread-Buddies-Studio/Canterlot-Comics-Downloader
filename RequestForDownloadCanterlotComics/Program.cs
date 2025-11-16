@@ -123,8 +123,16 @@ internal static class Program
         //img.canterlotcomics.com/maincomic
         return URL;
     }
-    public static HashSet<string> GetChapters(string responseBody) => 
-        LookForInfo(responseBody: responseBody, lookingFor:$"/chap/en/{comicName}", prefix: baseURL, downloadText: "Discovered Chapter");
+    public static HashSet<string> GetChapters(string responseBody)
+    {
+        // Get Chapters //
+        HashSet<string> chapters = LookForInfo(responseBody: responseBody, lookingFor: $"/chap/", prefix: baseURL, downloadText: "Discovered Chapter");
+        // Remove chapters that aren't part of the comic... //
+        chapters.RemoveWhere((chapter) => !chapter.Contains(comicName));
+        // Return Findings //
+        return chapters;
+        
+    }
     static async Task<string> GetURLInfo(string sourceURL)
     {
         try
@@ -348,7 +356,7 @@ internal static class Program
                 {
                     // Data //
                     string imagePath = await DownloadImageFromURL(URL, i + 1);
-                    double percentage = 100f / panelURLS.Count * ++completedTasks;
+                    double percentage = Math.Clamp(100f / panelURLS.Count * ++completedTasks, 0, 100);
                     // Checks //
                     if (imagePath != string.Empty) // SAVE PANEL FILE //
                         panelFiles[i] = imagePath;
