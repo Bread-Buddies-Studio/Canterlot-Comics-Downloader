@@ -1,0 +1,92 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Bread\\Documents\\GitHub\\Canterlot-Comics-Downloader\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A975A042-2AA5-4BE8-8894-081092638617}|Core\\Core.csproj|c:\\users\\bread\\documents\\github\\canterlot-comics-downloader\\core\\services\\inputservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A975A042-2AA5-4BE8-8894-081092638617}|Core\\Core.csproj|solutionrelative:core\\services\\inputservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FC6FBC0E-1289-4FA7-ACA3-8ADEE6229CC8}|RequestForDownloadCanterlotComics\\RequestForDownloadCanterlotComics.csproj|c:\\users\\bread\\documents\\github\\canterlot-comics-downloader\\requestfordownloadcanterlotcomics\\requestfordownloadcanterlotcomics.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{FC6FBC0E-1289-4FA7-ACA3-8ADEE6229CC8}|RequestForDownloadCanterlotComics\\RequestForDownloadCanterlotComics.csproj|solutionrelative:requestfordownloadcanterlotcomics\\requestfordownloadcanterlotcomics.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FC6FBC0E-1289-4FA7-ACA3-8ADEE6229CC8}|RequestForDownloadCanterlotComics\\RequestForDownloadCanterlotComics.csproj|c:\\users\\bread\\documents\\github\\canterlot-comics-downloader\\requestfordownloadcanterlotcomics\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FC6FBC0E-1289-4FA7-ACA3-8ADEE6229CC8}|RequestForDownloadCanterlotComics\\RequestForDownloadCanterlotComics.csproj|solutionrelative:requestfordownloadcanterlotcomics\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FC6FBC0E-1289-4FA7-ACA3-8ADEE6229CC8}|RequestForDownloadCanterlotComics\\RequestForDownloadCanterlotComics.csproj|c:\\users\\bread\\documents\\github\\canterlot-comics-downloader\\requestfordownloadcanterlotcomics\\global.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FC6FBC0E-1289-4FA7-ACA3-8ADEE6229CC8}|RequestForDownloadCanterlotComics\\RequestForDownloadCanterlotComics.csproj|solutionrelative:requestfordownloadcanterlotcomics\\global.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "RequestForDownloadCanterlotComics",
+              "DocumentMoniker": "C:\\Users\\Bread\\Documents\\GitHub\\Canterlot-Comics-Downloader\\RequestForDownloadCanterlotComics\\RequestForDownloadCanterlotComics.csproj",
+              "RelativeDocumentMoniker": "RequestForDownloadCanterlotComics\\RequestForDownloadCanterlotComics.csproj",
+              "ToolTip": "C:\\Users\\Bread\\Documents\\GitHub\\Canterlot-Comics-Downloader\\RequestForDownloadCanterlotComics\\RequestForDownloadCanterlotComics.csproj",
+              "RelativeToolTip": "RequestForDownloadCanterlotComics\\RequestForDownloadCanterlotComics.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-11-19T21:19:20.214Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "InputService.cs",
+              "DocumentMoniker": "C:\\Users\\Bread\\Documents\\GitHub\\Canterlot-Comics-Downloader\\Core\\Services\\InputService.cs",
+              "RelativeDocumentMoniker": "Core\\Services\\InputService.cs",
+              "ToolTip": "C:\\Users\\Bread\\Documents\\GitHub\\Canterlot-Comics-Downloader\\Core\\Services\\InputService.cs",
+              "RelativeToolTip": "Core\\Services\\InputService.cs",
+              "ViewState": "AgIAADMAAAAAAAAAAAAYwDsAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-19T21:04:19.312Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Bread\\Documents\\GitHub\\Canterlot-Comics-Downloader\\RequestForDownloadCanterlotComics\\Program.cs",
+              "RelativeDocumentMoniker": "RequestForDownloadCanterlotComics\\Program.cs",
+              "ToolTip": "C:\\Users\\Bread\\Documents\\GitHub\\Canterlot-Comics-Downloader\\RequestForDownloadCanterlotComics\\Program.cs",
+              "RelativeToolTip": "RequestForDownloadCanterlotComics\\Program.cs",
+              "ViewState": "AgIAAEMBAAAAAAAAAAAAAHwBAAA/AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-19T21:04:15.044Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Global.cs",
+              "DocumentMoniker": "C:\\Users\\Bread\\Documents\\GitHub\\Canterlot-Comics-Downloader\\RequestForDownloadCanterlotComics\\Global.cs",
+              "RelativeDocumentMoniker": "RequestForDownloadCanterlotComics\\Global.cs",
+              "ToolTip": "C:\\Users\\Bread\\Documents\\GitHub\\Canterlot-Comics-Downloader\\RequestForDownloadCanterlotComics\\Global.cs",
+              "RelativeToolTip": "RequestForDownloadCanterlotComics\\Global.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-19T21:04:13.948Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

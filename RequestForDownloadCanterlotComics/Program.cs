@@ -367,22 +367,26 @@ internal static class Program
                     ConsoleExtensions.ReplaceLine($"Installing: {percentage}%");
                 }
             );
-            // Wait to finish fetching pages //https://www.canterlotcomics.com/comic/en/alien_twilight_signing_off-1959
+            // Wait to finish fetching pages //
             await Task.WhenAll(panelFetchTasks);
             // Downloads Folder //
-            Directory.CreateDirectory(@$"{downloadLocation}\Downloads");
+            Directory.CreateDirectory($"{downloadLocation}\\Downloads");
             // Create Zip File //
-            ZipFileCreator.CreateZipFile(@$"{downloadLocation}\Downloads\{comicName}.cbz", panelFiles);
+            ZipFileCreator.CreateZipFile($"{downloadLocation}\\Downloads\\{comicName}.cbz", panelFiles);
+            Console.WriteLine($"\nComic Path: {downloadLocation}\\Downloads\\{comicName}.cbz\n\t{panelFiles.Length} Pages");
             // Cleanup //
             foreach (string panelFile in panelFiles)
                 File.Delete(panelFile);
             // Open Downloads Folder //
-            Process.Start("explorer.exe", @$"{downloadLocation}\Downloads");
+            Process.Start("explorer.exe", $"{downloadLocation}\\Downloads");
             // Add New Line! //
             Console.WriteLine("\r\n");
             // Upscale //
             if (InputService.YesOrNo("Upscale Comic?"))
-                await UpscalerService.UpscaleComic(@$"{downloadLocation}\Downloads\{comicName}.cbz", InputService.RequestByte("Scale Factor?"));
+                await UpscalerService.UpscaleComic(
+                    @$"{downloadLocation}\Downloads\{comicName}.cbz", // Download Path 
+                    InputService.RequestByte("Scale Factor?", minimum: 2, maximum: 4)
+                );
         }
     }
 }

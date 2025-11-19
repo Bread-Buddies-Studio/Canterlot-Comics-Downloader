@@ -88,7 +88,3 @@ C:\Users\Bread\Documents\GitHub\Canterlot-Comics-Downloader\RequestForDownloadCa
 C:\Users\Bread\Documents\GitHub\Canterlot-Comics-Downloader\RequestForDownloadCanterlotComics\bin\Debug\net9.0-windows\Upscaler.dll
 C:\Users\Bread\Documents\GitHub\Canterlot-Comics-Downloader\RequestForDownloadCanterlotComics\bin\Debug\net9.0-windows\Core.pdb
 C:\Users\Bread\Documents\GitHub\Canterlot-Comics-Downloader\RequestForDownloadCanterlotComics\bin\Debug\net9.0-windows\Upscaler.pdb
-C:\Users\Bread\Documents\GitHub\Canterlot-Comics-Downloader\RequestForDownloadCanterlotComics\bin\Debug\net9.0-windows\Microsoft.Win32.SystemEvents.dll
-C:\Users\Bread\Documents\GitHub\Canterlot-Comics-Downloader\RequestForDownloadCanterlotComics\bin\Debug\net9.0-windows\System.Drawing.Common.dll
-C:\Users\Bread\Documents\GitHub\Canterlot-Comics-Downloader\RequestForDownloadCanterlotComics\bin\Debug\net9.0-windows\System.Private.Windows.Core.dll
-C:\Users\Bread\Documents\GitHub\Canterlot-Comics-Downloader\RequestForDownloadCanterlotComics\bin\Debug\net9.0-windows\runtimes\win\lib\net9.0\Microsoft.Win32.SystemEvents.dll

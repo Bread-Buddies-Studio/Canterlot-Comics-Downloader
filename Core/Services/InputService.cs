@@ -56,22 +56,20 @@ public static class InputService
         }
     }
 
-    public static byte RequestByte(string query)
+    public static byte RequestByte(string query, byte minimum = byte.MinValue, byte maximum = byte.MaxValue)
     {
         // Request Input //
         while (true)
         {
             // Query //
-            Console.Write(query + " (0-255): ");
+            Console.Write($"{query} ({minimum}-{maximum}): ");
             // Input //
             string? input = Console.ReadLine();
             // Conditions //
-            if (input is null)
-            {
-                Console.WriteLine("Invalid Input!\n");
-                continue;
-            }
-            if (!byte.TryParse(input, out byte chosenInt))
+            if (input is null
+                || !byte.TryParse(input, out byte chosenInt)
+                || chosenInt < minimum
+                || chosenInt > maximum)
             {
                 Console.WriteLine("Invalid Input!\n");
                 continue;
