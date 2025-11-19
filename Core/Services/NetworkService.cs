@@ -22,7 +22,7 @@ public static class NetworkService
     /// Path to save the file to
     /// </param>
     /// 
-    /// <returns></returns>
+    /// <returns>Whether the download was successful</returns>
     public static async Task<bool> DownloadFilesAsync(Uri url, string outputPath)
     {
         try

@@ -6,7 +6,6 @@ using System.Diagnostics;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.IO.Compression;
-
 using System.Collections.ObjectModel;
 using System.Numerics;
 using Core.Services;
@@ -45,7 +44,7 @@ public static class ZipFileCreator
 internal static class Program
 {
     // Settings //
-    static readonly string downloadLocation = ProgramFiles; // KnownFolders.GetPath(KnownFolder.Downloads);
+    static readonly string downloadLocation = AppData; // KnownFolders.GetPath(KnownFolder.Downloads);
     static string comicLink = "https://www.canterlotcomics.com/comic/en/alien_twilight_signing_off-1959";
     // Don't Touch //
     static string comicName = comicLink[(comicLink.LastIndexOf('/') + 1)..comicLink.LastIndexOf('-')];
@@ -94,7 +93,10 @@ internal static class Program
                 // Success //
                 string URL = responseBody[index..endOfURLIndex];
                 // Save //
-                information.Add(prefix + URL + suffix);
+                bool alreadyPresent = !information.Add(prefix + URL + suffix);
+                // Already Present //
+                if (alreadyPresent)
+                    continue;
                 // Debug //
                 gatheredURLS++;
                 ConsoleExtensions.ReplaceLine($"{downloadText}: x{gatheredURLS}");
@@ -186,7 +188,6 @@ internal static class Program
     }
     public static string QueryForComicLink()
     {
-        Console.WriteLine("\nRemember to run as Administrator!\n");
         string? input;
         while (true)
         {
@@ -221,6 +222,8 @@ internal static class Program
     }
     static async Task Main(string[] args)
     {
+        // Prepare Directories //
+        Directory.CreateDirectory(AppData);
         // Cover Update //
         if (args.Length is not 0)
         {
