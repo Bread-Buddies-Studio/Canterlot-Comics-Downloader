@@ -12,6 +12,7 @@ using Core.Services;
 using Upscaler.Services;
 using Core.Extensions;
 using System.Drawing.Printing;
+using QuickEPUB;
 
 public static class ZipFileCreator
 {
@@ -175,7 +176,7 @@ internal static class Program
     public static async Task<string> DownloadImageFromURL(string sourceURL, int panelIndex)
     {
         // If you want it as PNG
-        string fileName = string.Format("-{0,8:D8}", panelIndex);
+        string fileName = string.Format("{0,8:D8}", panelIndex);
         string downloadedTo = @$"{PanelsTemp}\{fileName}.png";
         // Attempt Download //
         bool success = await NetworkService.DownloadFilesAsync(new Uri(sourceURL), downloadedTo);
@@ -209,16 +210,16 @@ internal static class Program
         }
         return input;
     }
-    public static void GetCredits(string responseBody)
+    public static string[] GetCredits(string responseBody)
     {
         // Authors //
         HashSet<string> authors = LookForInfo(responseBody, "/author/", downloadText: "Finding Authors");
         // Get Authors //
         Console.WriteLine();
         foreach (string author in authors)
-        {
             Console.WriteLine($"Found Author: {author}");
-        }
+        // Return Authors //
+        return [.. authors];
     }
     static async Task Main(string[] args)
     {
@@ -324,7 +325,7 @@ internal static class Program
             // Get Main Comic Page //
             string URLInfo = await GetURLInfo(comicLink);
             // Get Credits //
-            GetCredits(URLInfo);
+            string[] authors = GetCredits(URLInfo);
             // Download Cover //
             string coverURL = GetCoverURL(URLInfo);
             // Download Chapters //
@@ -371,22 +372,24 @@ internal static class Program
             await Task.WhenAll(panelFetchTasks);
             // Downloads Folder //
             Directory.CreateDirectory($"{downloadLocation}\\Downloads");
-            // Create Zip File //
-            ZipFileCreator.CreateZipFile($"{downloadLocation}\\Downloads\\{comicName}.cbz", panelFiles);
-            Console.WriteLine($"\nComic Path: {downloadLocation}\\Downloads\\{comicName}.cbz\n\t{panelFiles.Length} Pages");
+            // Create Epub //
+            Epub comic = ComicService.CreateComic(comicName, authors, panelFiles);
+            // Export //
+            comic.Export($"{downloadLocation}\\Downloads\\{comicName}.epub");
+            Console.WriteLine($"\nComic Path: {downloadLocation}\\Downloads\\{comicName}.epub\n\t{panelFiles.Length} Pages");
             // Cleanup //
-            foreach (string panelFile in panelFiles)
-                File.Delete(panelFile);
+            //foreach (string panelFile in panelFiles)
+            //    File.Delete(panelFile);
             // Open Downloads Folder //
             Process.Start("explorer.exe", $"{downloadLocation}\\Downloads");
             // Add New Line! //
             Console.WriteLine("\r\n");
             // Upscale //
-            if (InputService.YesOrNo("Upscale Comic?"))
+/*            if (InputService.YesOrNo("Upscale Comic?"))
                 await UpscalerService.UpscaleComic(
                     @$"{downloadLocation}\Downloads\{comicName}.cbz", // Download Path 
                     InputService.RequestByte("Scale Factor?", minimum: 2, maximum: 4)
-                );
+                );*/
         }
     }
 }

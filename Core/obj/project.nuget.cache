@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "2e/o4BVc5T4=",
+  "dgSpecHash": "O6oBA6tPDRw=",
   "success": true,
   "projectFilePath": "C:\\Users\\Bread\\Documents\\GitHub\\Canterlot-Comics-Downloader\\Core\\Core.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Bread\\.nuget\\packages\\quickepub\\1.2.0\\quickepub.1.2.0.nupkg.sha512"
+  ],
   "logs": []
 }

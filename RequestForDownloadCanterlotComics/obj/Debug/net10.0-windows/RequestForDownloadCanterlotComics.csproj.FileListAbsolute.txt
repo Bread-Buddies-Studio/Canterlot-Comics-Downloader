@@ -1,0 +1,6 @@
+C:\Users\Bread\Documents\GitHub\Canterlot-Comics-Downloader\RequestForDownloadCanterlotComics\obj\Debug\net10.0-windows\RequestForDownloadCanterlotComics.csproj.AssemblyReference.cache
+C:\Users\Bread\Documents\GitHub\Canterlot-Comics-Downloader\RequestForDownloadCanterlotComics\obj\Debug\net10.0-windows\RequestForDownloadCanterlotComics.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Bread\Documents\GitHub\Canterlot-Comics-Downloader\RequestForDownloadCanterlotComics\obj\Debug\net10.0-windows\RequestForDownloadCanterlotComics.AssemblyInfoInputs.cache
+C:\Users\Bread\Documents\GitHub\Canterlot-Comics-Downloader\RequestForDownloadCanterlotComics\obj\Debug\net10.0-windows\RequestForDownloadCanterlotComics.AssemblyInfo.cs
+C:\Users\Bread\Documents\GitHub\Canterlot-Comics-Downloader\RequestForDownloadCanterlotComics\obj\Debug\net10.0-windows\RequestForDownloadCanterlotComics.csproj.CoreCompileInputs.cache
+C:\Users\Bread\Documents\GitHub\Canterlot-Comics-Downloader\RequestForDownloadCanterlotComics\obj\Debug\net10.0-windows\RequestForDownloadCanterlotComics.sourcelink.json

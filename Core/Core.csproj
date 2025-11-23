@@ -1,10 +1,14 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net9.0</TargetFramework>
+    <TargetFramework>net10.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <Configurations>Debug;Release;Release Linux;Linux;Linux</Configurations>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="QuickEPUB" Version="1.2.0" />
+  </ItemGroup>
 
 </Project>

@@ -1,0 +1,57 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v10.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v10.0": {
+      "Upscaler/1.0.0": {
+        "dependencies": {
+          "Core": "1.0.0"
+        },
+        "runtime": {
+          "Upscaler.dll": {}
+        }
+      },
+      "QuickEPUB/1.2.0": {
+        "runtime": {
+          "lib/netstandard2.0/QuickEPUB.dll": {
+            "assemblyVersion": "1.2.0.0",
+            "fileVersion": "1.2.0.0"
+          }
+        }
+      },
+      "Core/1.0.0": {
+        "dependencies": {
+          "QuickEPUB": "1.2.0"
+        },
+        "runtime": {
+          "Core.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Upscaler/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "QuickEPUB/1.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-y6UOHcbcJlMPSwGqMx8yqWQCnVBQA7Go3fAT1N5ybfLfMnzOcMOvI4LgaXfDC7Vkg3q1TvDXyj19hCdtgr5P5Q==",
+      "path": "quickepub/1.2.0",
+      "hashPath": "quickepub.1.2.0.nupkg.sha512"
+    },
+    "Core/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
