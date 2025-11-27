@@ -2,3 +2,6 @@
 *.bin
 /.vs
 /.vs
+/.vs
+/.vs/ProjectEvaluation
+/Core/bin
