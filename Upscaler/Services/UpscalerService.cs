@@ -44,6 +44,27 @@ public static class UpscalerService
 
         return downloadPath;
     }
+    public static async Task<string[]> Upscale(byte scale = 4, params string[] imagePaths)
+    {
+        // Allocate //
+        string[] upscaledPaths = new string[imagePaths.Length];
+        // Create Process //
+        using Process upscalerProcess = new();
+        upscalerProcess.StartInfo.FileName = UpscalerEXE;
+        // Upscale //
+        foreach ((int index, string path) in imagePaths.Index())
+        {
+            // Conditions //
+            if (path == string.Empty)
+                continue;
+            // Upscale //
+            upscaledPaths[index] = await Upscale(path, upscalerProcess, scale);
+            // Output //
+            ConsoleExtensions.ReplaceLine($"Finished Upscaling Page {index} | {100f / imagePaths.Length * index:.000}%");
+        }
+        // Return Upscaled //
+        return upscaledPaths;
+    }
     public static async Task UpscaleComic(string comicPath, byte scale = 4)
     {
         using FileStream stream = new(comicPath, FileMode.Open);

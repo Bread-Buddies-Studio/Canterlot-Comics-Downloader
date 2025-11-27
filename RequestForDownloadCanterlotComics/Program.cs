@@ -175,9 +175,12 @@ internal static class Program
     }
     public static async Task<string> DownloadImageFromURL(string sourceURL, int panelIndex)
     {
-        // If you want it as PNG
+        // Extract Name //
         string fileName = string.Format("{0,8:D8}", panelIndex);
-        string downloadedTo = @$"{PanelsTemp}\{fileName}.png";
+        string fileExtension = Path.GetExtension(sourceURL);
+        string downloadedTo = @$"{PanelsTemp}\{fileName}{fileExtension}";
+        // Debug //
+        Console.WriteLine("Downloading: " + sourceURL + '\n' + "Extension: " + fileExtension + '\n');
         // Attempt Download //
         bool success = await NetworkService.DownloadFilesAsync(new Uri(sourceURL), downloadedTo);
         // Return Success //
@@ -357,39 +360,63 @@ internal static class Program
             int completedTasks = 0;
             // Fetch Panels (Pages) //
             IEnumerable<Task> panelFetchTasks = panelURLS.Select(async (URL, i) =>
+            {
+                // Data //
+                string imagePath = await DownloadImageFromURL(URL, i + 1);
+                double percentage = Math.Clamp(100f / panelURLS.Count * ++completedTasks, 0, 100);
+                // Checks //
+                if (imagePath != string.Empty) // SAVE PANEL FILE //
                 {
-                    // Data //
-                    string imagePath = await DownloadImageFromURL(URL, i + 1);
-                    double percentage = Math.Clamp(100f / panelURLS.Count * ++completedTasks, 0, 100);
-                    // Checks //
-                    if (imagePath != string.Empty) // SAVE PANEL FILE //
-                        panelFiles[i] = imagePath;
-                    // Percentage //
-                    ConsoleExtensions.ReplaceLine($"Installing: {percentage}%");
+                    // Fix path if broken. //
+                    string newPath = PanelsTemp + '\\' + Path.GetFileNameWithoutExtension(imagePath) + Path.GetExtension(imagePath) switch
+                    {
+                        ".png" => ".png",
+                        ".gif" or ".gifv" => ".gif",
+                        ".jpg" => ".jpg",
+                        _ => ".png"
+                    };
+                    // Rename File //
+                    File.Move(imagePath, newPath, overwrite: true);
+                    // Save Reference //
+                    panelFiles[i] = newPath;
                 }
-            );
+                // Percentage //
+                ConsoleExtensions.ReplaceLine($"Installing: {percentage}%");
+            });
             // Wait to finish fetching pages //
             await Task.WhenAll(panelFetchTasks);
+            // Upscale //
+            if (InputService.YesOrNo("Upscale Comic?"))
+                panelFiles = await UpscalerService.Upscale(
+                    InputService.RequestByte("Scale Factor?", minimum: 2, maximum: 4),
+                    panelFiles
+                );
             // Downloads Folder //
             Directory.CreateDirectory($"{downloadLocation}\\Downloads");
             // Create Epub //
             Epub comic = ComicService.CreateComic(comicName, authors, panelFiles);
             // Export //
-            comic.Export($"{downloadLocation}\\Downloads\\{comicName}.epub");
-            Console.WriteLine($"\nComic Path: {downloadLocation}\\Downloads\\{comicName}.epub\n\t{panelFiles.Length} Pages");
+            string exportPath = $"{downloadLocation}\\Downloads\\{comicName}.epub";
+            comic.Export(exportPath);
+            Console.WriteLine($"\nComic Path: {exportPath}\n\t{panelFiles.Length} Pages");
             // Cleanup //
-            //foreach (string panelFile in panelFiles)
-            //    File.Delete(panelFile);
+            completedTasks = 0;
+            IEnumerable<string> filesToDelete = Directory.GetFiles(PanelsTemp).Concat(panelFiles);
+            Console.WriteLine();
+            foreach (string panelFile in filesToDelete)
+            {
+                // Calculate //
+                double percentage = Math.Clamp(100f / panelURLS.Count * ++completedTasks, 0, 100);
+                // Delete File //
+                File.Delete(panelFile);
+                // Output //
+                ConsoleExtensions.ReplaceLine($"Cleanup: {percentage}%");
+            }
             // Open Downloads Folder //
             Process.Start("explorer.exe", $"{downloadLocation}\\Downloads");
             // Add New Line! //
             Console.WriteLine("\r\n");
-            // Upscale //
-/*            if (InputService.YesOrNo("Upscale Comic?"))
-                await UpscalerService.UpscaleComic(
-                    @$"{downloadLocation}\Downloads\{comicName}.cbz", // Download Path 
-                    InputService.RequestByte("Scale Factor?", minimum: 2, maximum: 4)
-                );*/
+            
         }
     }
 }
