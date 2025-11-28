@@ -21,4 +21,6 @@ public static class GlobalService
     public static readonly string UpscaledTemp = $@"{AppData}\UpscaledTemp";
     public static readonly string UpscalerDirectory = $@"{ProgramFiles}\Upscaler";
     public static readonly string UpscalerEXE = $@"{UpscalerDirectory}\Upscaler.exe";
+    public static readonly string EpubDirectory = $@"{ProgramFiles}\Epub";
+    public static readonly string EpubEXE = $@"{EpubDirectory}\CPubMake.exe";
 }

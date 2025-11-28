@@ -1,10 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "DbvEeGvuRsk=",
+  "dgSpecHash": "q9pd8ZDWMuo=",
   "success": true,
   "projectFilePath": "C:\\Users\\Bread\\Documents\\GitHub\\Canterlot-Comics-Downloader\\Upscaler\\Upscaler.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Bread\\.nuget\\packages\\quickepub\\1.2.0\\quickepub.1.2.0.nupkg.sha512"
+    "C:\\Users\\Bread\\.nuget\\packages\\cpublib\\1.2.37\\cpublib.1.2.37.nupkg.sha512",
+    "C:\\Users\\Bread\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\Bread\\.nuget\\packages\\netstandard.library\\1.6.1\\netstandard.library.1.6.1.nupkg.sha512",
+    "C:\\Users\\Bread\\.nuget\\packages\\sixlabors.imagesharp\\3.1.12\\sixlabors.imagesharp.3.1.12.nupkg.sha512"
   ],
   "logs": []
 }

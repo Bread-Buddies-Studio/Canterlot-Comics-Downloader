@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Upscaler")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+35c71ed99cb130fbc1e881565b4c5133d26d2651")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+90434f3a0d5d912ba726aad888a9ca0380dbc049")]
 [assembly: System.Reflection.AssemblyProductAttribute("Upscaler")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Upscaler")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

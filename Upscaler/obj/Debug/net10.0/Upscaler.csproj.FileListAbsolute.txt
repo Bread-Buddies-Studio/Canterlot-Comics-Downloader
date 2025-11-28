@@ -28,3 +28,10 @@ C:\Users\Bread\Documents\GitHub\Canterlot-Comics-Downloader\Upscaler\obj\Debug\n
 C:\Users\Bread\Documents\GitHub\Canterlot-Comics-Downloader\Upscaler\obj\Debug\net10.0\refint\Upscaler.dll
 C:\Users\Bread\Documents\GitHub\Canterlot-Comics-Downloader\Upscaler\obj\Debug\net10.0\Upscaler.pdb
 C:\Users\Bread\Documents\GitHub\Canterlot-Comics-Downloader\Upscaler\obj\Debug\net10.0\ref\Upscaler.dll
+C:\Users\Bread\Documents\GitHub\Canterlot-Comics-Downloader\Upscaler\bin\Debug\net10.0\Epub\clrcompression.dll
+C:\Users\Bread\Documents\GitHub\Canterlot-Comics-Downloader\Upscaler\bin\Debug\net10.0\Epub\clrjit.dll
+C:\Users\Bread\Documents\GitHub\Canterlot-Comics-Downloader\Upscaler\bin\Debug\net10.0\Epub\coreclr.dll
+C:\Users\Bread\Documents\GitHub\Canterlot-Comics-Downloader\Upscaler\bin\Debug\net10.0\Epub\CPubLib.pdb
+C:\Users\Bread\Documents\GitHub\Canterlot-Comics-Downloader\Upscaler\bin\Debug\net10.0\Epub\CPubMake.exe
+C:\Users\Bread\Documents\GitHub\Canterlot-Comics-Downloader\Upscaler\bin\Debug\net10.0\Epub\CPubMake.pdb
+C:\Users\Bread\Documents\GitHub\Canterlot-Comics-Downloader\Upscaler\bin\Debug\net10.0\Epub\mscordaccore.dll

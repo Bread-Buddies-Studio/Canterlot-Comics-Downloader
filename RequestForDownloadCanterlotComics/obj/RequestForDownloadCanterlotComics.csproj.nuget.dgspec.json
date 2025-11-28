@@ -51,9 +51,13 @@
         "net10.0": {
           "targetAlias": "net10.0",
           "dependencies": {
-            "QuickEPUB": {
+            "CPubLib": {
               "target": "Package",
-              "version": "[1.2.0, )"
+              "version": "[1.2.37, )"
+            },
+            "SixLabors.ImageSharp": {
+              "target": "Package",
+              "version": "[3.1.12, )"
             }
           },
           "imports": [
@@ -403,6 +407,16 @@
       "frameworks": {
         "net10.0": {
           "targetAlias": "net10.0",
+          "dependencies": {
+            "CPubLib": {
+              "target": "Package",
+              "version": "[1.2.37, )"
+            },
+            "SixLabors.ImageSharp": {
+              "target": "Package",
+              "version": "[3.1.12, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -747,6 +761,16 @@
       "frameworks": {
         "net10.0": {
           "targetAlias": "net10.0",
+          "dependencies": {
+            "CPubLib": {
+              "target": "Package",
+              "version": "[1.2.37, )"
+            },
+            "SixLabors.ImageSharp": {
+              "target": "Package",
+              "version": "[3.1.12, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

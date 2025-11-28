@@ -8,17 +8,29 @@
     ".NETCoreApp,Version=v10.0": {
       "Core/1.0.0": {
         "dependencies": {
-          "QuickEPUB": "1.2.0"
+          "CPubLib": "1.2.37",
+          "SixLabors.ImageSharp": "3.1.12"
         },
         "runtime": {
           "Core.dll": {}
         }
       },
-      "QuickEPUB/1.2.0": {
+      "CPubLib/1.2.37": {
+        "dependencies": {
+          "SixLabors.ImageSharp": "3.1.12"
+        },
         "runtime": {
-          "lib/netstandard2.0/QuickEPUB.dll": {
-            "assemblyVersion": "1.2.0.0",
-            "fileVersion": "1.2.0.0"
+          "lib/netstandard1.4/CPubLib.dll": {
+            "assemblyVersion": "1.2.37.0",
+            "fileVersion": "1.2.37.0"
+          }
+        }
+      },
+      "SixLabors.ImageSharp/3.1.12": {
+        "runtime": {
+          "lib/net6.0/SixLabors.ImageSharp.dll": {
+            "assemblyVersion": "3.0.0.0",
+            "fileVersion": "3.1.12.0"
           }
         }
       }
@@ -30,12 +42,19 @@
       "serviceable": false,
       "sha512": ""
     },
-    "QuickEPUB/1.2.0": {
+    "CPubLib/1.2.37": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-y6UOHcbcJlMPSwGqMx8yqWQCnVBQA7Go3fAT1N5ybfLfMnzOcMOvI4LgaXfDC7Vkg3q1TvDXyj19hCdtgr5P5Q==",
-      "path": "quickepub/1.2.0",
-      "hashPath": "quickepub.1.2.0.nupkg.sha512"
+      "sha512": "sha512-tEjOuvxfDcVx5S50pbonNU1jrM/S7ofbjVjDtpIVvGdXTXlM4BfOOxATEmur86CpEbcUGy6K0GXJpQNSrODiNw==",
+      "path": "cpublib/1.2.37",
+      "hashPath": "cpublib.1.2.37.nupkg.sha512"
+    },
+    "SixLabors.ImageSharp/3.1.12": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-iAg6zifihXEFS/t7fiHhZBGAdCp3FavsF4i2ZIDp0JfeYeDVzvmlbY1CNhhIKimaIzrzSi5M/NBFcWvZT2rB/A==",
+      "path": "sixlabors.imagesharp/3.1.12",
+      "hashPath": "sixlabors.imagesharp.3.1.12.nupkg.sha512"
     }
   }
 }

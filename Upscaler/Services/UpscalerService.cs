@@ -21,6 +21,7 @@ public static class UpscalerService
         Directory.CreateDirectory(UpscaledTemp);
         // Paths //
         string downloadPath = $@"{UpscaledTemp}\{imageNameWithExtension}";
+        // Debug //
         //Console.WriteLine(imagePath);
         //Console.WriteLine(downloadPath);
         // Begin Upscale //
@@ -35,13 +36,25 @@ public static class UpscalerService
             "-s", // scale
             scale.ToString()
         ]);
+        // Process Settings //
         process.StartInfo.CreateNoWindow = true;
         process.StartInfo.UseShellExecute = false;
         process.StartInfo.Verb = "runas";
-        
+        // Ouptut //
+        process.OutputDataReceived += (sender, eventData) => 
+        {
+            string? line = eventData.Data;
+            // Conditions //
+            if (line is null)
+                return;
+            // Output //
+            Console.WriteLine(line);
+        };
+        // Start //
         process.Start();
+        // Wait until Done //
         await process.WaitForExitAsync();
-
+        // Finish //
         return downloadPath;
     }
     public static async Task<string[]> Upscale(byte scale = 4, params string[] imagePaths)
@@ -94,6 +107,7 @@ public static class UpscalerService
             File.Delete(upscaledPagePath);
             // Debug //
             ConsoleExtensions.ReplaceLine($"Finished Upscaling Page {index} | {100f / pageAmount * index:.000}%");
+
         }
     }
 }

@@ -2,24 +2,56 @@
   "version": 3,
   "targets": {
     "net10.0": {
-      "QuickEPUB/1.2.0": {
+      "CPubLib/1.2.37": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.1",
+          "SixLabors.ImageSharp": "1.0.2"
+        },
+        "compile": {
+          "lib/netstandard1.4/CPubLib.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.4/CPubLib.dll": {}
+        }
+      },
+      "Microsoft.NETCore.Platforms/1.1.0": {
         "type": "package",
         "compile": {
-          "lib/netstandard2.0/QuickEPUB.dll": {
+          "lib/netstandard1.0/_._": {}
+        },
+        "runtime": {
+          "lib/netstandard1.0/_._": {}
+        }
+      },
+      "NETStandard.Library/1.6.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "1.1.0"
+        }
+      },
+      "SixLabors.ImageSharp/3.1.12": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/SixLabors.ImageSharp.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/netstandard2.0/QuickEPUB.dll": {
+          "lib/net6.0/SixLabors.ImageSharp.dll": {
             "related": ".xml"
           }
+        },
+        "build": {
+          "build/SixLabors.ImageSharp.props": {}
         }
       },
       "Core/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v10.0",
         "dependencies": {
-          "QuickEPUB": "1.2.0"
+          "CPubLib": "1.2.37",
+          "SixLabors.ImageSharp": "3.1.12"
         },
         "compile": {
           "bin/placeholder/Core.dll": {}
@@ -31,19 +63,63 @@
     }
   },
   "libraries": {
-    "QuickEPUB/1.2.0": {
-      "sha512": "y6UOHcbcJlMPSwGqMx8yqWQCnVBQA7Go3fAT1N5ybfLfMnzOcMOvI4LgaXfDC7Vkg3q1TvDXyj19hCdtgr5P5Q==",
+    "CPubLib/1.2.37": {
+      "sha512": "tEjOuvxfDcVx5S50pbonNU1jrM/S7ofbjVjDtpIVvGdXTXlM4BfOOxATEmur86CpEbcUGy6K0GXJpQNSrODiNw==",
       "type": "package",
-      "path": "quickepub/1.2.0",
+      "path": "cpublib/1.2.37",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "LICENSE.md",
-        "README.md",
-        "lib/netstandard2.0/QuickEPUB.dll",
-        "lib/netstandard2.0/QuickEPUB.xml",
-        "quickepub.1.2.0.nupkg.sha512",
-        "quickepub.nuspec"
+        "cpublib.1.2.37.nupkg.sha512",
+        "cpublib.nuspec",
+        "lib/net472/CPubLib.dll",
+        "lib/netstandard1.4/CPubLib.dll",
+        "lib/uap10.0.10240/CPubLib.dll",
+        "lib/uap10.0.10240/CPubLib.pri"
+      ]
+    },
+    "Microsoft.NETCore.Platforms/1.1.0": {
+      "sha512": "kz0PEW2lhqygehI/d6XsPCQzD7ff7gUJaVGPVETX611eadGsA3A877GdSlU0LRVMCTH/+P3o2iDTak+S08V2+A==",
+      "type": "package",
+      "path": "microsoft.netcore.platforms/1.1.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "ThirdPartyNotices.txt",
+        "dotnet_library_license.txt",
+        "lib/netstandard1.0/_._",
+        "microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+        "microsoft.netcore.platforms.nuspec",
+        "runtime.json"
+      ]
+    },
+    "NETStandard.Library/1.6.1": {
+      "sha512": "WcSp3+vP+yHNgS8EV5J7pZ9IRpeDuARBPN28by8zqff1wJQXm26PVU8L3/fYLBJVU7BtDyqNVWq2KlCVvSSR4A==",
+      "type": "package",
+      "path": "netstandard.library/1.6.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "ThirdPartyNotices.txt",
+        "dotnet_library_license.txt",
+        "netstandard.library.1.6.1.nupkg.sha512",
+        "netstandard.library.nuspec"
+      ]
+    },
+    "SixLabors.ImageSharp/3.1.12": {
+      "sha512": "iAg6zifihXEFS/t7fiHhZBGAdCp3FavsF4i2ZIDp0JfeYeDVzvmlbY1CNhhIKimaIzrzSi5M/NBFcWvZT2rB/A==",
+      "type": "package",
+      "path": "sixlabors.imagesharp/3.1.12",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "build/SixLabors.ImageSharp.props",
+        "lib/net6.0/SixLabors.ImageSharp.dll",
+        "lib/net6.0/SixLabors.ImageSharp.xml",
+        "sixlabors.imagesharp.128.png",
+        "sixlabors.imagesharp.3.1.12.nupkg.sha512",
+        "sixlabors.imagesharp.nuspec"
       ]
     },
     "Core/1.0.0": {
@@ -54,7 +130,9 @@
   },
   "projectFileDependencyGroups": {
     "net10.0": [
-      "Core >= 1.0.0"
+      "CPubLib >= 1.2.37",
+      "Core >= 1.0.0",
+      "SixLabors.ImageSharp >= 3.1.12"
     ]
   },
   "packageFolders": {
@@ -111,6 +189,16 @@
     "frameworks": {
       "net10.0": {
         "targetAlias": "net10.0",
+        "dependencies": {
+          "CPubLib": {
+            "target": "Package",
+            "version": "[1.2.37, )"
+          },
+          "SixLabors.ImageSharp": {
+            "target": "Package",
+            "version": "[3.1.12, )"
+          }
+        },
         "imports": [
           "net461",
           "net462",

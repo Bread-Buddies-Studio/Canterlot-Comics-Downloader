@@ -1,44 +1,49 @@
-﻿using QuickEPUB;
+﻿using Core.Extensions;
+using CPubLib;
+using SixLabors.ImageSharp;
+using SixLabors.ImageSharp.Formats;
+using SixLabors.ImageSharp.Formats.Png;
 using System;
 using System.Collections.Generic;
-using System.Text;
-using Core.Extensions;
-using System.Security.AccessControl;
+using System.Data.Common;
+using System.Diagnostics;
+using System.IO;
 using System.IO.Compression;
+using System.Runtime.InteropServices.Marshalling;
+using System.Security.AccessControl;
+using System.Text;
 
 namespace Core.Services;
 public static class ComicService
 {
-    /// <summary>
-    /// Creates an <see cref="Epub"/>.
-    /// </summary>
-    /// <param name="title">The title of the EPUB.</param>
-    /// <param name="authors">The authors of the EPUB.</param>
-    /// <param name="panelPaths">The URLS of the Pages.</param>
-    /// <returns>The <see cref="Epub"/> object.</returns>
-    /// <exception cref="InvalidOperationException">Invalid Image Type.</exception>
-    public static Epub CreateComic(string title, string[] authors, string[] panelPaths)
+    public static async Task CreateComicAsync(string title, string[] authors, bool isCoverIncluded, string[] panelPaths, string exportPath)
     {
-        Epub doc = new(title, string.Join(", ", authors));
-        // Add Pages //
-        foreach ((int index, string path) in panelPaths.Where(path => path is not null).Index())
+        // Create Epub Process //
+        using Process process = new()
         {
-            Console.WriteLine("Loading: " + path);
-            // Get File Type //
-            EpubResourceType fileType = Path.GetExtension(path) switch
-            {
-                ".png" => EpubResourceType.PNG,
-                ".gif" or ".gifv" => EpubResourceType.GIF,
-                ".jpg" => EpubResourceType.JPEG,
-                _ => EpubResourceType.PNG
-            };
-            // Import Image //
-            doc.AddResource(path, fileType);
-            // Create Page //
-            doc.AddSection($"Page {index}", $"<img src=\"{Path.GetFileName(path)}\" alt=\"page\" style=\"width:auto;height:auto;\"/>");
-            Console.WriteLine("Added " + Path.GetFileName(path));
-        }
-        // Finish //
-        return doc;
+            StartInfo = new ProcessStartInfo(EpubEXE, string.Join(' ',
+            [
+                "--cover", panelPaths.First(),
+                "--directory", PanelsTemp,
+                "--output", exportPath,
+
+                "--title", title,
+                "--author", string.Join(", ", authors)
+            ])),
+        };
+        // Start Process //
+        process.Start();
+        // Get Output //
+        process.OutputDataReceived += (sender, eventData) => 
+        {
+            string? line = eventData.Data;
+            // Conditions //
+            if (line is null)
+                return;
+            // Output //
+            Console.WriteLine(line);
+        };
+        // Wait for exit. //
+        await process.WaitForExitAsync();
     }
 }

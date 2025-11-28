@@ -12,7 +12,6 @@ using Core.Services;
 using Upscaler.Services;
 using Core.Extensions;
 using System.Drawing.Printing;
-using QuickEPUB;
 
 public static class ZipFileCreator
 {
@@ -394,10 +393,10 @@ internal static class Program
             // Downloads Folder //
             Directory.CreateDirectory($"{downloadLocation}\\Downloads");
             // Create Epub //
-            Epub comic = ComicService.CreateComic(comicName, authors, panelFiles);
-            // Export //
             string exportPath = $"{downloadLocation}\\Downloads\\{comicName}.epub";
-            comic.Export(exportPath);
+            await ComicService.CreateComicAsync(comicName, authors, coverURL == string.Empty, panelFiles, exportPath);
+            // Export //
+            
             Console.WriteLine($"\nComic Path: {exportPath}\n\t{panelFiles.Length} Pages");
             // Cleanup //
             completedTasks = 0;
