@@ -221,7 +221,7 @@ internal static class Program
         foreach (string author in authors)
             Console.WriteLine($"Found Author: {author}");
         // Return Authors //
-        return [.. authors];
+        return [.. authors.Select(author => author[8..])];
     }
     static async Task Main(string[] args)
     {
@@ -385,7 +385,8 @@ internal static class Program
             // Wait to finish fetching pages //
             await Task.WhenAll(panelFetchTasks);
             // Upscale //
-            if (InputService.YesOrNo("Upscale Comic?"))
+            bool upscalingComic;
+            if (upscalingComic = InputService.YesOrNo("Upscale Comic?"))
                 panelFiles = await UpscalerService.Upscale(
                     InputService.RequestByte("Scale Factor?", minimum: 2, maximum: 4),
                     panelFiles
@@ -394,7 +395,7 @@ internal static class Program
             Directory.CreateDirectory($"{downloadLocation}\\Downloads");
             // Create Epub //
             string exportPath = $"{downloadLocation}\\Downloads\\{comicName}.epub";
-            await ComicService.CreateComicAsync(comicName, authors, coverURL == string.Empty, panelFiles, exportPath);
+            await ComicService.CreateComicAsync(comicName, authors, coverURL == string.Empty, upscalingComic ? UpscaledTemp : PanelsTemp, panelFiles, exportPath);
             // Export //
             
             Console.WriteLine($"\nComic Path: {exportPath}\n\t{panelFiles.Length} Pages");

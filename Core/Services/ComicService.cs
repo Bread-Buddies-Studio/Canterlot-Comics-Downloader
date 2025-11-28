@@ -16,19 +16,19 @@ using System.Text;
 namespace Core.Services;
 public static class ComicService
 {
-    public static async Task CreateComicAsync(string title, string[] authors, bool isCoverIncluded, string[] panelPaths, string exportPath)
+    public static async Task CreateComicAsync(string title, string[] authors, bool isCoverIncluded, string panelDirectory, string[] panelPaths, string exportPath)
     {
         // Create Epub Process //
         using Process process = new()
         {
             StartInfo = new ProcessStartInfo(EpubEXE, string.Join(' ',
             [
-                "--cover", panelPaths.First(),
-                "--directory", PanelsTemp,
+                $"{(isCoverIncluded ? "--cover " + panelPaths.First() : string.Empty)}",
+                "--directory", panelDirectory,
                 "--output", exportPath,
 
                 "--title", title,
-                "--author", string.Join(", ", authors)
+                "--author", string.Join(',', authors)
             ])),
         };
         // Start Process //

@@ -17,7 +17,6 @@ C:\Users\Bread\Documents\GitHub\Canterlot-Comics-Downloader\RequestForDownloadCa
 C:\Users\Bread\Documents\GitHub\Canterlot-Comics-Downloader\RequestForDownloadCanterlotComics\bin\Release\net10.0\RequestForDownloadCanterlotComics.runtimeconfig.json
 C:\Users\Bread\Documents\GitHub\Canterlot-Comics-Downloader\RequestForDownloadCanterlotComics\bin\Release\net10.0\RequestForDownloadCanterlotComics.dll
 C:\Users\Bread\Documents\GitHub\Canterlot-Comics-Downloader\RequestForDownloadCanterlotComics\bin\Release\net10.0\RequestForDownloadCanterlotComics.pdb
-C:\Users\Bread\Documents\GitHub\Canterlot-Comics-Downloader\RequestForDownloadCanterlotComics\bin\Release\net10.0\QuickEPUB.dll
 C:\Users\Bread\Documents\GitHub\Canterlot-Comics-Downloader\RequestForDownloadCanterlotComics\bin\Release\net10.0\Core.dll
 C:\Users\Bread\Documents\GitHub\Canterlot-Comics-Downloader\RequestForDownloadCanterlotComics\bin\Release\net10.0\Upscaler.dll
 C:\Users\Bread\Documents\GitHub\Canterlot-Comics-Downloader\RequestForDownloadCanterlotComics\bin\Release\net10.0\Core.pdb
@@ -34,3 +33,12 @@ C:\Users\Bread\Documents\GitHub\Canterlot-Comics-Downloader\RequestForDownloadCa
 C:\Users\Bread\Documents\GitHub\Canterlot-Comics-Downloader\RequestForDownloadCanterlotComics\obj\Release\net10.0\RequestForDownloadCanterlotComics.pdb
 C:\Users\Bread\Documents\GitHub\Canterlot-Comics-Downloader\RequestForDownloadCanterlotComics\obj\Release\net10.0\RequestForDownloadCanterlotComics.genruntimeconfig.cache
 C:\Users\Bread\Documents\GitHub\Canterlot-Comics-Downloader\RequestForDownloadCanterlotComics\obj\Release\net10.0\ref\RequestForDownloadCanterlotComics.dll
+C:\Users\Bread\Documents\GitHub\Canterlot-Comics-Downloader\RequestForDownloadCanterlotComics\bin\Release\net10.0\Epub\clrcompression.dll
+C:\Users\Bread\Documents\GitHub\Canterlot-Comics-Downloader\RequestForDownloadCanterlotComics\bin\Release\net10.0\Epub\clrjit.dll
+C:\Users\Bread\Documents\GitHub\Canterlot-Comics-Downloader\RequestForDownloadCanterlotComics\bin\Release\net10.0\Epub\coreclr.dll
+C:\Users\Bread\Documents\GitHub\Canterlot-Comics-Downloader\RequestForDownloadCanterlotComics\bin\Release\net10.0\Epub\CPubLib.pdb
+C:\Users\Bread\Documents\GitHub\Canterlot-Comics-Downloader\RequestForDownloadCanterlotComics\bin\Release\net10.0\Epub\CPubMake.exe
+C:\Users\Bread\Documents\GitHub\Canterlot-Comics-Downloader\RequestForDownloadCanterlotComics\bin\Release\net10.0\Epub\CPubMake.pdb
+C:\Users\Bread\Documents\GitHub\Canterlot-Comics-Downloader\RequestForDownloadCanterlotComics\bin\Release\net10.0\Epub\mscordaccore.dll
+C:\Users\Bread\Documents\GitHub\Canterlot-Comics-Downloader\RequestForDownloadCanterlotComics\bin\Release\net10.0\CPubLib.dll
+C:\Users\Bread\Documents\GitHub\Canterlot-Comics-Downloader\RequestForDownloadCanterlotComics\bin\Release\net10.0\SixLabors.ImageSharp.dll
