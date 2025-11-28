@@ -3,36 +3,40 @@
   "WorkspaceRootPath": "C:\\Users\\Bread\\Documents\\GitHub\\Canterlot-Comics-Downloader\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A975A042-2AA5-4BE8-8894-081092638617}|Core\\Core.csproj|c:\\users\\bread\\documents\\github\\canterlot-comics-downloader\\core\\services\\comicservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A975A042-2AA5-4BE8-8894-081092638617}|Core\\Core.csproj|solutionrelative:core\\services\\comicservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{41C32150-AFB3-43F0-9387-8ECDB322F782}|Upscaler\\Upscaler.csproj|c:\\users\\bread\\documents\\github\\canterlot-comics-downloader\\upscaler\\services\\upscalerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{41C32150-AFB3-43F0-9387-8ECDB322F782}|Upscaler\\Upscaler.csproj|solutionrelative:upscaler\\services\\upscalerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{FC6FBC0E-1289-4FA7-ACA3-8ADEE6229CC8}|RequestForDownloadCanterlotComics\\RequestForDownloadCanterlotComics.csproj|c:\\users\\bread\\documents\\github\\canterlot-comics-downloader\\requestfordownloadcanterlotcomics\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FC6FBC0E-1289-4FA7-ACA3-8ADEE6229CC8}|RequestForDownloadCanterlotComics\\RequestForDownloadCanterlotComics.csproj|solutionrelative:requestfordownloadcanterlotcomics\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{41C32150-AFB3-43F0-9387-8ECDB322F782}|Upscaler\\Upscaler.csproj|c:\\users\\bread\\documents\\github\\canterlot-comics-downloader\\upscaler\\services\\upscalerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{41C32150-AFB3-43F0-9387-8ECDB322F782}|Upscaler\\Upscaler.csproj|solutionrelative:upscaler\\services\\upscalerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A975A042-2AA5-4BE8-8894-081092638617}|Core\\Core.csproj|c:\\users\\bread\\documents\\github\\canterlot-comics-downloader\\core\\extensions\\consoleextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A975A042-2AA5-4BE8-8894-081092638617}|Core\\Core.csproj|solutionrelative:core\\extensions\\consoleextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A975A042-2AA5-4BE8-8894-081092638617}|Core\\Core.csproj|c:\\users\\bread\\documents\\github\\canterlot-comics-downloader\\core\\services\\globalservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A975A042-2AA5-4BE8-8894-081092638617}|Core\\Core.csproj|solutionrelative:core\\services\\globalservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{41C32150-AFB3-43F0-9387-8ECDB322F782}|Upscaler\\Upscaler.csproj|c:\\users\\bread\\documents\\github\\canterlot-comics-downloader\\upscaler\\global.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{41C32150-AFB3-43F0-9387-8ECDB322F782}|Upscaler\\Upscaler.csproj|solutionrelative:upscaler\\global.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A975A042-2AA5-4BE8-8894-081092638617}|Core\\Core.csproj|c:\\users\\bread\\documents\\github\\canterlot-comics-downloader\\core\\services\\comicservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A975A042-2AA5-4BE8-8894-081092638617}|Core\\Core.csproj|solutionrelative:core\\services\\comicservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A975A042-2AA5-4BE8-8894-081092638617}|Core\\Core.csproj|c:\\users\\bread\\documents\\github\\canterlot-comics-downloader\\core\\core.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
       "RelativeMoniker": "D:0:0:{A975A042-2AA5-4BE8-8894-081092638617}|Core\\Core.csproj|solutionrelative:core\\core.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{A975A042-2AA5-4BE8-8894-081092638617}|Core\\Core.csproj|c:\\users\\bread\\documents\\github\\canterlot-comics-downloader\\core\\services\\networkservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A975A042-2AA5-4BE8-8894-081092638617}|Core\\Core.csproj|solutionrelative:core\\services\\networkservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A975A042-2AA5-4BE8-8894-081092638617}|Core\\Core.csproj|c:\\users\\bread\\documents\\github\\canterlot-comics-downloader\\core\\services\\globalservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A975A042-2AA5-4BE8-8894-081092638617}|Core\\Core.csproj|solutionrelative:core\\services\\globalservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A975A042-2AA5-4BE8-8894-081092638617}|Core\\Core.csproj|c:\\users\\bread\\documents\\github\\canterlot-comics-downloader\\core\\services\\inputservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A975A042-2AA5-4BE8-8894-081092638617}|Core\\Core.csproj|solutionrelative:core\\services\\inputservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41C32150-AFB3-43F0-9387-8ECDB322F782}|Upscaler\\Upscaler.csproj|c:\\users\\bread\\documents\\github\\canterlot-comics-downloader\\upscaler\\global.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{41C32150-AFB3-43F0-9387-8ECDB322F782}|Upscaler\\Upscaler.csproj|solutionrelative:upscaler\\global.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{FC6FBC0E-1289-4FA7-ACA3-8ADEE6229CC8}|RequestForDownloadCanterlotComics\\RequestForDownloadCanterlotComics.csproj|c:\\users\\bread\\documents\\github\\canterlot-comics-downloader\\requestfordownloadcanterlotcomics\\global.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -46,7 +50,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Document",
@@ -56,7 +60,7 @@
               "RelativeDocumentMoniker": "RequestForDownloadCanterlotComics\\Program.cs",
               "ToolTip": "C:\\Users\\Bread\\Documents\\GitHub\\Canterlot-Comics-Downloader\\RequestForDownloadCanterlotComics\\Program.cs",
               "RelativeToolTip": "RequestForDownloadCanterlotComics\\Program.cs",
-              "ViewState": "AgIAAHABAAAAAAAAAAAEwI0BAAAmAAAAAAAAAA==",
+              "ViewState": "AgIAAHYBAAAAAAAAAAAAAIMBAAA5AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-19T21:04:15.044Z",
               "IsPinned": true,
@@ -68,19 +72,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
+              "Title": "ComicService.cs",
+              "DocumentMoniker": "C:\\Users\\Bread\\Documents\\GitHub\\Canterlot-Comics-Downloader\\Core\\Services\\ComicService.cs",
+              "RelativeDocumentMoniker": "Core\\Services\\ComicService.cs",
+              "ToolTip": "C:\\Users\\Bread\\Documents\\GitHub\\Canterlot-Comics-Downloader\\Core\\Services\\ComicService.cs",
+              "RelativeToolTip": "Core\\Services\\ComicService.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAABkAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-28T19:31:58.845Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "GlobalService.cs",
               "DocumentMoniker": "C:\\Users\\Bread\\Documents\\GitHub\\Canterlot-Comics-Downloader\\Core\\Services\\GlobalService.cs",
               "RelativeDocumentMoniker": "Core\\Services\\GlobalService.cs",
               "ToolTip": "C:\\Users\\Bread\\Documents\\GitHub\\Canterlot-Comics-Downloader\\Core\\Services\\GlobalService.cs",
               "RelativeToolTip": "Core\\Services\\GlobalService.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAAqwBcAAABJAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAABJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-28T01:15:41.304Z"
+              "WhenOpened": "2025-11-28T01:15:41.304Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 8,
               "Title": "Global.cs",
               "DocumentMoniker": "C:\\Users\\Bread\\Documents\\GitHub\\Canterlot-Comics-Downloader\\Upscaler\\Global.cs",
               "RelativeDocumentMoniker": "Upscaler\\Global.cs",
@@ -88,11 +106,12 @@
               "RelativeToolTip": "Upscaler\\Global.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-27T06:25:12.854Z"
+              "WhenOpened": "2025-11-27T06:25:12.854Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 4,
               "Title": "Core.csproj",
               "DocumentMoniker": "C:\\Users\\Bread\\Documents\\GitHub\\Canterlot-Comics-Downloader\\Core\\Core.csproj",
               "RelativeDocumentMoniker": "Core\\Core.csproj",
@@ -100,30 +119,18 @@
               "RelativeToolTip": "Core\\Core.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACYAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-11-27T06:24:24.47Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ComicService.cs",
-              "DocumentMoniker": "C:\\Users\\Bread\\Documents\\GitHub\\Canterlot-Comics-Downloader\\Core\\Services\\ComicService.cs",
-              "RelativeDocumentMoniker": "Core\\Services\\ComicService.cs",
-              "ToolTip": "C:\\Users\\Bread\\Documents\\GitHub\\Canterlot-Comics-Downloader\\Core\\Services\\ComicService.cs",
-              "RelativeToolTip": "Core\\Services\\ComicService.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAkwCAAAAAKAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-27T02:40:16.494Z",
+              "WhenOpened": "2025-11-27T06:24:24.47Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "UpscalerService.cs",
               "DocumentMoniker": "C:\\Users\\Bread\\Documents\\GitHub\\Canterlot-Comics-Downloader\\Upscaler\\Services\\UpscalerService.cs",
               "RelativeDocumentMoniker": "Upscaler\\Services\\UpscalerService.cs",
               "ToolTip": "C:\\Users\\Bread\\Documents\\GitHub\\Canterlot-Comics-Downloader\\Upscaler\\Services\\UpscalerService.cs",
               "RelativeToolTip": "Upscaler\\Services\\UpscalerService.cs",
-              "ViewState": "AgIAAAcAAAAAAAAAAAAYwBAAAAAbAAAAAAAAAA==",
+              "ViewState": "AgIAAD4AAAAAAAAAAAAvwD4AAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-27T01:07:56.995Z",
               "EditorCaption": ""
@@ -138,23 +145,38 @@
               "RelativeToolTip": "Core\\Services\\InputService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAADoAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-19T21:04:19.312Z"
+              "WhenOpened": "2025-11-19T21:04:19.312Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "ConsoleExtensions.cs",
               "DocumentMoniker": "C:\\Users\\Bread\\Documents\\GitHub\\Canterlot-Comics-Downloader\\Core\\Extensions\\ConsoleExtensions.cs",
               "RelativeDocumentMoniker": "Core\\Extensions\\ConsoleExtensions.cs",
               "ToolTip": "C:\\Users\\Bread\\Documents\\GitHub\\Canterlot-Comics-Downloader\\Core\\Extensions\\ConsoleExtensions.cs",
               "RelativeToolTip": "Core\\Extensions\\ConsoleExtensions.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAbAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-23T21:05:58.86Z"
+              "WhenOpened": "2025-11-23T21:05:58.86Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 5,
+              "Title": "NetworkService.cs",
+              "DocumentMoniker": "C:\\Users\\Bread\\Documents\\GitHub\\Canterlot-Comics-Downloader\\Core\\Services\\NetworkService.cs",
+              "RelativeDocumentMoniker": "Core\\Services\\NetworkService.cs",
+              "ToolTip": "C:\\Users\\Bread\\Documents\\GitHub\\Canterlot-Comics-Downloader\\Core\\Services\\NetworkService.cs",
+              "RelativeToolTip": "Core\\Services\\NetworkService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-28T19:26:54.866Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
               "Title": "Global.cs",
               "DocumentMoniker": "C:\\Users\\Bread\\Documents\\GitHub\\Canterlot-Comics-Downloader\\RequestForDownloadCanterlotComics\\Global.cs",
               "RelativeDocumentMoniker": "RequestForDownloadCanterlotComics\\Global.cs",

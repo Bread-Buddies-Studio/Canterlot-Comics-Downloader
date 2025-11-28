@@ -49,13 +49,11 @@ internal static class Program
     // Don't Touch //
     static string comicName = comicLink[(comicLink.LastIndexOf('/') + 1)..comicLink.LastIndexOf('-')];
     static int gatheredURLS = 0;
-    // HttpClient is intended to be instantiated once per application, rather than per-use.
-    public static readonly HttpClient client = new();
     /// <summary>
     /// Finds patterns in text.
     /// </summary>
     /// <param name="responseBody">
-    /// Usually the HTML Source Code
+    /// Usually the HTML Source Code.
     /// </param>
     /// <param name="lookingFor">
     /// The pattern to look for.
@@ -99,7 +97,7 @@ internal static class Program
                     continue;
                 // Debug //
                 gatheredURLS++;
-                ConsoleExtensions.ReplaceLine($"{downloadText}: x{gatheredURLS}");
+                Console.ReplaceLine($"{downloadText}: x{gatheredURLS}");
             }
             // Console.WriteLine(responseBody);
         }
@@ -139,7 +137,7 @@ internal static class Program
     {
         try
         {
-            string responseBody = await client.GetStringAsync(sourceURL);
+            string responseBody = await NetworkService.Client.GetStringAsync(sourceURL);
             //Console.WriteLine(responseBody);
             return responseBody;
         }
@@ -158,7 +156,7 @@ internal static class Program
         try
         {
             // Have to get new response body because the panels are within their own chapters //
-            string responseBody = await client.GetStringAsync(sourceURL);
+            string responseBody = await NetworkService.Client.GetStringAsync(sourceURL);
             // Above three lines can be replaced with new helper method below
             // string responseBody = await client.GetStringAsync(uri);
             string lookingFor = "//img.canterlotcomics.com/maincomic";
@@ -179,7 +177,7 @@ internal static class Program
         string fileExtension = Path.GetExtension(sourceURL);
         string downloadedTo = @$"{PanelsTemp}\{fileName}{fileExtension}";
         // Debug //
-        Console.WriteLine("Downloading: " + sourceURL + '\n' + "Extension: " + fileExtension + '\n');
+        //Console.WriteLine("Downloading: " + sourceURL + '\n' + "Extension: " + fileExtension + '\n');
         // Attempt Download //
         bool success = await NetworkService.DownloadFilesAsync(new Uri(sourceURL), downloadedTo);
         // Return Success //
@@ -303,7 +301,7 @@ internal static class Program
                             oldStream.CopyTo(newStream);
                     // Delete Old Page //
                     entry.Delete();
-                    ConsoleExtensions.ReplaceLine("Moving Files | " + (100f / archive.Entries.Count * index));
+                    Console.ReplaceLine("Moving Files | " + (100f / archive.Entries.Count * index));
                 };
                 // Add Cover at Beginning //
                 archive.CreateEntryFromFile(coverPath, string.Format("-{0,8:D8}", 1) + Path.GetExtension(coverPath), CompressionLevel.NoCompression);
@@ -380,7 +378,7 @@ internal static class Program
                     panelFiles[i] = newPath;
                 }
                 // Percentage //
-                ConsoleExtensions.ReplaceLine($"Installing: {percentage}%");
+                Console.ReplaceLine($"Installing: {percentage}%");
             });
             // Wait to finish fetching pages //
             await Task.WhenAll(panelFetchTasks);
@@ -410,7 +408,7 @@ internal static class Program
                 // Delete File //
                 File.Delete(panelFile);
                 // Output //
-                ConsoleExtensions.ReplaceLine($"Cleanup: {percentage}%");
+                Console.ReplaceLine($"Cleanup: {percentage}%");
             }
             // Open Downloads Folder //
             Process.Start("explorer.exe", $"{downloadLocation}\\Downloads");

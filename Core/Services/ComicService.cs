@@ -23,6 +23,7 @@ public static class ComicService
         {
             StartInfo = new ProcessStartInfo(EpubEXE, string.Join(' ',
             [
+                "--ignore-cover-aspect-ratio",
                 $"{(isCoverIncluded ? "--cover " + panelPaths.First() : string.Empty)}",
                 "--directory", panelDirectory,
                 "--output", exportPath,

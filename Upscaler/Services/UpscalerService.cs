@@ -21,6 +21,7 @@ public static class UpscalerService
         Directory.CreateDirectory(UpscaledTemp);
         // Paths //
         string downloadPath = $@"{UpscaledTemp}\{imageNameWithExtension}";
+        Console.WriteLine("Upscaling: " + downloadPath);
         // Debug //
         //Console.WriteLine(imagePath);
         //Console.WriteLine(downloadPath);
@@ -40,16 +41,16 @@ public static class UpscalerService
         process.StartInfo.CreateNoWindow = true;
         process.StartInfo.UseShellExecute = false;
         process.StartInfo.Verb = "runas";
-        // Ouptut //
-        process.OutputDataReceived += (sender, eventData) => 
-        {
-            string? line = eventData.Data;
-            // Conditions //
-            if (line is null)
-                return;
-            // Output //
-            Console.WriteLine(line);
-        };
+        // Ouptut // Removed because this kinda gives useless data...
+        //process.OutputDataReceived += (sender, eventData) => 
+        //{
+        //    string? line = eventData.Data;
+        //    // Conditions //
+        //    if (line is null)
+        //        return;
+        //    // Output //
+        //    Console.WriteLine(line);
+        //};
         // Start //
         process.Start();
         // Wait until Done //
@@ -59,6 +60,16 @@ public static class UpscalerService
     }
     public static async Task<string[]> Upscale(byte scale = 4, params string[] imagePaths)
     {
+        // Conditions // Cancel if GIF Detected.
+        foreach (string imagePath in imagePaths)
+        {
+            // Conditions //
+            if (imagePath.Contains("gif"))
+            {
+                Console.WriteLine("Cancelling! GIF is not supported!");
+                return imagePaths;
+            }
+        }
         // Allocate //
         string[] upscaledPaths = new string[imagePaths.Length];
         // Create Process //
@@ -73,7 +84,7 @@ public static class UpscalerService
             // Upscale //
             upscaledPaths[index] = await Upscale(path, upscalerProcess, scale);
             // Output //
-            ConsoleExtensions.ReplaceLine($"Finished Upscaling Page {index} | {100f / imagePaths.Length * index:.000}%");
+            Console.ReplaceLine($"Finished Upscaling Page {index} | {100f / imagePaths.Length * index:.000}%");
         }
         // Return Upscaled //
         return upscaledPaths;
@@ -106,8 +117,7 @@ public static class UpscalerService
             File.Delete(tempPagePath);
             File.Delete(upscaledPagePath);
             // Debug //
-            ConsoleExtensions.ReplaceLine($"Finished Upscaling Page {index} | {100f / pageAmount * index:.000}%");
-
+            Console.ReplaceLine($"Finished Upscaling Page {index} | {100f / pageAmount * index:.000}%");
         }
     }
 }
